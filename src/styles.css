@@ -13,3 +13,7 @@
 html{
   background-color: #fafafc;
 }
+
+a {
+  cursor: pointer;
+}

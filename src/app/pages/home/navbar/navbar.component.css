@@ -1,3 +1,56 @@
-a{
-  /* font-family: "Trade Winds", system-ui; */
+.animateIn {
+  animation: animateIn 300ms ease-in-out forwards;
+}
+
+@keyframes animateIn {
+  0% {
+    top: 32px;
+    right: 0;
+    opacity: 0;
+    transform: scale(0.5);
+    border-radius: 100%;
+  }
+
+  100% {
+    top: 50px;
+    right: 5vw;
+    opacity: 1;
+    transform: scale(1);
+    border-radius: 10px;
+  }
+}
+
+.animateOut {
+  animation: animateOut 300ms ease-in-out forwards;
+}
+
+@keyframes animateOut {
+  0% {
+    top: 50px;
+    right: 5vw;
+    opacity: 1;
+    transform: scale(1);
+    border-radius: 10px;
+  }
+
+  100% {
+    top: 32px;
+    right: 0;
+    opacity: 0;
+    transform: scale(0.5);
+    border-radius: 100%;
+  }
+}
+.open1{
+  transform: translateY(7px) rotate(45deg) ;
+  background: #be123c;
+}
+.open2{
+  transform: translateY(-6px) rotate(-45deg) ;
+  background: #be123c;
+  width: 100%;
+}
+.active{
+  color: #0f172a;
+  font-weight: 500;
 }
