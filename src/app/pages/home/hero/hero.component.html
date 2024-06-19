@@ -1,0 +1,11 @@
+<div>
+  <div class="relative mx-auto max-w-screen-2xl px-[5vw] py-12 flex flex-col justify-center items-start">
+    <h2 class="absolute top-32 left-10 font-[700] scale-150 text-gray-200 -z-10 inline-block w-1 h-1">
+      <span [style.transform]="'rotate(' + i * 12 + 'deg)'" *ngFor="let c of fancyTitle; let i = index"
+        class="inline-block text-2xl h-24 absolute bottom-0 right-0 origin-bottom">{{ c }}</span>
+    </h2>
+    <h1 class="text-6xl text-slate-700 font-[600]">Frontend Developer</h1>
+    <h1 class="text-6xl text-gray-500 font-[600]">UX/UI Designer</h1>
+    <h1 class="text-6xl text-gray-300 font-[600]">Freelancer</h1>
+  </div>
+</div>

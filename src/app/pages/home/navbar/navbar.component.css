@@ -1,11 +1,11 @@
 .animateIn {
-  animation: animateIn 300ms ease-in-out forwards;
+  animation: animateIn 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 }
 
 @keyframes animateIn {
   0% {
-    top: 32px;
-    right: 0;
+    top: 12px;
+    right: -5vw;
     opacity: 0;
     transform: scale(0.5);
     border-radius: 100%;
@@ -21,7 +21,7 @@
 }
 
 .animateOut {
-  animation: animateOut 300ms ease-in-out forwards;
+  animation: animateOut 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 }
 
 @keyframes animateOut {
@@ -34,8 +34,8 @@
   }
 
   100% {
-    top: 32px;
-    right: 0;
+    top: 12px;
+    right: -5vw;
     opacity: 0;
     transform: scale(0.5);
     border-radius: 100%;

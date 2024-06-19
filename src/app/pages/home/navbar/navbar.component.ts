@@ -23,12 +23,14 @@ export class NavbarComponent {
   fablog = faBlog;
   faProjects = faProjectDiagram;
   isCollapsed = signal(false);
+  activeFragment = signal('');
   isAnimating = false;
   constructor(private router: Router) {}
   navClick(f: HTMLUListElement) {
-    if (this.isAnimating && window.innerWidth <= 640) return;
+    if (this.isAnimating || window.innerWidth > 640) return;
     this.isAnimating = true;
 
+    this.activeFragment.set('');
     this.isCollapsed.set(!this.isCollapsed());
     if (this.isCollapsed()) {
       f.style.display = 'flex';
@@ -57,7 +59,9 @@ export class NavbarComponent {
     }
   }
   navigate(fregment: string): void {
-    this.isCollapsed.set(false);
     this.router.navigateByUrl('' + fregment);
+    this.activeFragment.set(fregment);
+    if ( window.innerWidth > 640) return;
+    this.isCollapsed.set(false);
   }
 }
