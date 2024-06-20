@@ -5,22 +5,26 @@
     <div (click)="navClick(f)" [style.display]="isCollapsed() ? 'block' : 'none'"
       class="w-[100vw] h-[100vh] z-0 fixed top-0 left-0"></div>
     <ul #f
-      class="flex gap-4 items-center font-[500] text-gray-500 max-sm:absolute max-sm:right-[5vw] max-sm:top-16 max-sm:flex-col max-sm:bg-white max-sm:p-6 max-sm:gap-3 max-sm:items-start max-sm:z-10 max-sm:hidden max-sm:shadow max-sm:w-[150px] overflow-hidden">
-      <li>
-        <a (click)="navClick(f)" routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"><fa-icon [icon]="faHome" class="mr-2 sm:hidden"></fa-icon>Home</a>
+      class="flex gap-4 items-center font-[500] text-gray-500 max-sm:absolute max-sm:right-[5vw] max-sm:top-16 max-sm:flex-col max-sm:bg-white max-sm:p-6 max-sm:gap-3 max-sm:items-start max-sm:z-10 max-sm:hidden max-sm:shadow max-sm:w-[150px] ">
+      <li class="hover:scale-105 duration-100">
+        <a (click)="navClick(f)" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"><fa-icon [icon]="faHome" class="mr-2 sm:hidden"></fa-icon>Home</a>
       </li>
-      <li>
-        <a [class.active]="activeFragment() === '#about'" (click)="navigate('#about')"><fa-icon [icon]="faAbout" class="mr-2 sm:hidden"></fa-icon>About</a>
+      <li class="hover:scale-105 duration-100">
+        <a [class.active]="activeFragment() === '#about'" (click)="navigate('#about')"><fa-icon [icon]="faAbout"
+            class="mr-2 sm:hidden"></fa-icon>About</a>
       </li>
-      <li>
-        <a [class.active]="activeFragment() === '#projects'" (click)="navigate('#projects')"><fa-icon [icon]="faProjects" class="mr-2 sm:hidden"></fa-icon>Projects</a>
+      <li class="hover:scale-105 duration-100">
+        <a [class.active]="activeFragment() === '#projects'" (click)="navigate('#projects')"><fa-icon
+            [icon]="faProjects" class="mr-2 sm:hidden"></fa-icon>Projects</a>
       </li>
-      <li>
-        <a [class.active]="activeFragment() === '#contact'" (click)="navigate('#contact')"><fa-icon [icon]="faContact" class="mr-2 sm:hidden"></fa-icon>Contact</a>
+      <li class="hover:scale-105 duration-100">
+        <a [class.active]="activeFragment() === '#contact'" (click)="navigate('#contact')"><fa-icon [icon]="faContact"
+            class="mr-2 sm:hidden"></fa-icon>Contact</a>
       </li>
-      <li>
-        <a (click)="navClick(f)" [routerLinkActiveOptions]="{exact:true}" routerLink="blogs" routerLinkActive="active"><fa-icon [icon]="fablog"
-            class="mr-2 sm:hidden"></fa-icon>Blogs</a>
+      <li class="hover:scale-105 duration-100">
+        <a (click)="navClick(f)" [routerLinkActiveOptions]="{ exact: true }" routerLink="blogs"
+          routerLinkActive="active"><fa-icon [icon]="fablog" class="mr-2 sm:hidden"></fa-icon>Blogs</a>
       </li>
     </ul>
     <a (click)="navClick(f)" class="flex sm:hidden flex-col justify-center items-end aspect-square w-8 gap-2">

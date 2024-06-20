@@ -1,11 +1,28 @@
 <div>
-  <div class="relative mx-auto max-w-screen-2xl px-[5vw] py-12 flex flex-col justify-center items-start">
-    <h2 class="absolute top-32 left-10 font-[700] scale-150 text-gray-200 -z-10 inline-block w-1 h-1">
-      <span [style.transform]="'rotate(' + i * 12 + 'deg)'" *ngFor="let c of fancyTitle; let i = index"
-        class="inline-block text-2xl h-24 absolute bottom-0 right-0 origin-bottom">{{ c }}</span>
-    </h2>
-    <h1 class="text-6xl text-slate-700 font-[600]">Frontend Developer</h1>
-    <h1 class="text-6xl text-gray-500 font-[600]">UX/UI Designer</h1>
-    <h1 class="text-6xl text-gray-300 font-[600]">Freelancer</h1>
+  <div class="relative mx-auto max-w-screen-xl px-[5vw] py-24">
+    <div class="z-10 flex flex-col justify-center items-start">
+      <div class="relative text-6xl max-sm:text-5xl text-slate-700 font-[600]">
+        Frontend Developer
+        <h2
+          class="absolute top-28 left-[10vw] font-[700] rotateAni text-gray-200 -z-10 inline-block w-[0.5px] h-[0.5px] bg-red-500">
+          <span [style.transform]="'rotate(' + i * 12 + 'deg)'" *ngFor="let c of fancyTitle1; let i = index"
+            class="inline-block text-2xl h-32 text-center absolute bottom-0 border-t w-6 -right-3 origin-bottom uppercase">{{
+            c }}</span>
+        </h2>
+        <h2
+          class="absolute top-28 left-[10vw] font-[700] text-gray-200 rotateAniR -z-10 inline-block w-[0.5px] h-[0.5px] bg-green-600">
+          <span [style.transform]="'rotate(' + i * 7.68 + 'deg)'" *ngFor="let c of fancyTitle2; let i = index"
+            class="inline-block text-2xl h-40 text-center absolute bottom-0 w-6 -right-3 origin-bottom uppercase">{{ c
+            }}</span>
+        </h2>
+      </div>
+      <h1 class="text-6xl max-sm:text-5xl text-gray-500 font-[600]">
+        UX/UI Designer
+      </h1>
+      <h1 class="text-6xl max-sm:text-5xl text-gray-400 font-[600]">
+        Freelancer
+      </h1>
+    </div>
+    <canvas #canvas class="absolute right-0 top-0 -z-10"></canvas>
   </div>
 </div>
