@@ -32,8 +32,7 @@ export class HeroComponent implements AfterViewInit {
   private camera!: THREE.PerspectiveCamera;
   private scene!: THREE.Scene;
   private renderer!: THREE.WebGLRenderer;
-  private cube1!: THREE.Mesh;
-  private cube2!: THREE.Mesh;
+  private cube!: THREE.Mesh;
 
   constructor() {}
 
@@ -43,72 +42,47 @@ export class HeroComponent implements AfterViewInit {
   }
 
   private init(): void {
-    let width =  Math.min(window.innerWidth / 2, 700);
-    if(window.innerWidth < 640) {
-      width = window.innerWidth;
-    }
+    const width = Math.min(window.innerWidth / 2, 700);
     const height = (width / 3) * 2;
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas.nativeElement,
       antialias: true,
-      alpha: true,
     });
     this.renderer.setSize(width, height, true);
     this.canvas.nativeElement.style.touchAction = 'none';
     this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0xfafafc);
 
-    const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
-    const material = new THREE.MeshStandardMaterial({ color: 0x333333 ,roughness:0.2 } );
-    this.cube1 = new THREE.Mesh(geometry, material);
-    this.cube2 = new THREE.Mesh(geometry, material);
-    this.cube1.position.x = -2;
-    this.cube1.position.y = -0.5;
-    this.cube2.position.x = 2;
-    this.cube2.position.y = 0.5;
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshStandardMaterial({ color: 0x4e80f5 ,roughness:0 } );
+    this.cube = new THREE.Mesh(geometry, material);
 
-    this.scene.add(this.cube1);
-    this.scene.add(this.cube2);
+    this.scene.add(this.cube);
 
     this.camera = new THREE.PerspectiveCamera(75, 3 / 2, 0.1, 1000);
     this.camera.position.z = 5;
     window.addEventListener('resize', this.onWindowResize.bind(this));
-    window.addEventListener('scroll', this.onScroll.bind(this));
-    const ambientLight = new THREE.AmbientLight(0xffffff, 3);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     this.scene.add(ambientLight);
 
-    const directionalLight1 = new THREE.DirectionalLight(0x61edeb, 5);
-    directionalLight1.position.set(0, 2, 2);
-    this.scene.add(directionalLight1);
-    const directionalLight2 = new THREE.DirectionalLight(0xa83258, 5);
-    directionalLight2.position.set(1,-2 , 2);
-    this.scene.add(directionalLight2);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 4);
+    directionalLight.position.set(0, 1, 1);
+    this.scene.add(directionalLight);
   }
 
   private onWindowResize(): void {
-    let width =  Math.min(window.innerWidth / 2, 700);
-    if(window.innerWidth < 640) {
-      width = window.innerWidth;
-    }
+    const width = Math.min(window.innerWidth / 2, 700);
     const height = (width / 3) * 2;
     this.camera.aspect = 3 / 2;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height, true);
   }
-  onScroll() {
-    this.cube1.rotation.y += window.scrollY/10000 ;
-    this.cube1.rotation.x += window.scrollY/10000;
-    this.cube2.rotation.y -= window.scrollY/10000;
-    this.cube2.rotation.x -= window.scrollY/10000;
-  }
-
 
   private animate(): void {
     requestAnimationFrame(() => this.animate());
-    this.cube1.rotation.y += 0.0006;
-    this.cube1.rotation.x += 0.0007;
-    this.cube2.rotation.y -= 0.0006;
-    this.cube2.rotation.x -= 0.0007;
+    this.cube.rotation.y += 0.001;
+    this.cube.rotation.x += 0.002;
     this.renderer.render(this.scene, this.camera);
   }
 }
