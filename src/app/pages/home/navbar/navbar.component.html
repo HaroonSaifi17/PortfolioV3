@@ -3,9 +3,9 @@
     <a routerLink="/" class="font-trade-winds text-2xl flex items-center"><span
         class="text-slate-950 font-trade-winds">H</span>aroon</a>
     <div (click)="navClick(f)" [style.display]="isCollapsed() ? 'block' : 'none'"
-      class="w-[100vw] h-[100vh] z-0 fixed top-0 left-0"></div>
+      class="w-[100vw] h-[100vh] z-10 fixed top-0 left-0"></div>
     <ul #f
-      class="flex gap-4 items-center font-[500] text-gray-500 max-sm:absolute max-sm:right-[5vw] max-sm:top-16 max-sm:flex-col max-sm:bg-white max-sm:p-6 max-sm:gap-3 max-sm:items-start max-sm:z-10 max-sm:hidden max-sm:shadow max-sm:w-[150px] ">
+      class="flex gap-4 items-center font-[500] text-gray-500 max-sm:absolute max-sm:right-[5vw] max-sm:top-16 max-sm:flex-col max-sm:bg-white max-sm:p-6 max-sm:gap-3 max-sm:items-start max-sm:z-20 max-sm:hidden max-sm:shadow max-sm:w-[150px] ">
       <li class="hover:scale-105 duration-100">
         <a (click)="navClick(f)" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
           routerLinkActive="active"><fa-icon [icon]="faHome" class="mr-2 sm:hidden"></fa-icon>Home</a>
