@@ -8,7 +8,6 @@ import {
   faPaperclip,
   faProjectDiagram,
 } from '@fortawesome/free-solid-svg-icons';
-import { WINDOW } from '../../../utils/window.provider';
 
 @Component({
   selector: 'app-navbar',
@@ -26,9 +25,9 @@ export class NavbarComponent {
   isCollapsed = signal(false);
   activeFragment = signal('');
   isAnimating = false;
-  constructor(private router: Router, @Inject(WINDOW) private window: Window) {}
+  constructor(private router: Router) {}
   navClick(f: HTMLUListElement) {
-    if (this.isAnimating || this.window.innerWidth > 640) return;
+    if (this.isAnimating || window.innerWidth > 640) return;
     this.isAnimating = true;
 
     this.activeFragment.set('');

@@ -1,13 +1,15 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   Component,
   ElementRef,
   Inject,
+  NgZone,
+  PLATFORM_ID,
   ViewChild,
+  afterRender,
 } from '@angular/core';
 import * as THREE from 'three';
-import { WINDOW } from '../../../utils/window.provider';
 
 @Component({
   selector: 'app-hero',
@@ -35,6 +37,7 @@ export class HeroComponent implements AfterViewInit {
     'i', 's', '', 'k', 'e', 'y', '.'
   ];
 
+
   private camera!: THREE.PerspectiveCamera;
   private scene!: THREE.Scene;
   private renderer!: THREE.WebGLRenderer;
@@ -44,19 +47,32 @@ export class HeroComponent implements AfterViewInit {
   private cube3!: THREE.Mesh;
   private previousScrollY: number = 0;
 
-  constructor(@Inject(WINDOW) private window: Window) {}
+  constructor(
+    private ngZone: NgZone,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {
+    afterRender(() => {
+      this.init();
+      this.animate();
+    });
+  }
 
   ngAfterViewInit(): void {
-    this.init();
-    this.animate();
+    // if (!isPlatformBrowser(this.platformId)) {
+    //   this.onWindowResize();
+    // }
   }
 
   private init(): void {
-    let width = Math.min(this.window.innerWidth / 2, 700);
-    if (this.window.innerWidth < 640) {
-      width = this.window.innerWidth;
+    let width = 700;
+    let height = 500;
+    if (isPlatformBrowser(this.platformId)) {
+      width = Math.min(window.innerWidth / 2, 700);
+      if (window.innerWidth < 640) {
+        width = window.innerWidth;
+      }
+      height = (width / 3) * 2;
     }
-    const height = (width / 3) * 2;
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas!.nativeElement,
@@ -64,7 +80,7 @@ export class HeroComponent implements AfterViewInit {
       alpha: true,
     });
 
-    this.renderer.setPixelRatio(this.window.devicePixelRatio);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(width, height, true);
     this.canvas.nativeElement.style.touchAction = 'none';
     this.scene = new THREE.Scene();
@@ -95,8 +111,8 @@ export class HeroComponent implements AfterViewInit {
 
     this.camera = new THREE.PerspectiveCamera(60, 3 / 2, 0.1, 5);
     this.camera.position.z = 3;
-    this.window.addEventListener('resize', this.onWindowResize.bind(this));
-    this.window.addEventListener('scroll', this.onScroll.bind(this));
+    window.addEventListener('resize', this.onWindowResize.bind(this));
+    window.addEventListener('scroll', this.onScroll.bind(this));
     const ambientLight = new THREE.AmbientLight(0xffffff, 3);
     this.scene.add(ambientLight);
 
@@ -164,9 +180,9 @@ export class HeroComponent implements AfterViewInit {
   }
 
   private onWindowResize(): void {
-    let width = Math.min(this.window.innerWidth / 2, 700);
-    if (this.window.innerWidth < 640) {
-      width = this.window.innerWidth;
+    let width = Math.min(window.innerWidth / 2, 700);
+    if (window.innerWidth < 640) {
+      width = window.innerWidth;
     }
     const height = (width / 3) * 2;
     this.camera.aspect = 3 / 2;
@@ -175,7 +191,7 @@ export class HeroComponent implements AfterViewInit {
   }
 
   onScroll() {
-    const scrollY = this.window.scrollY;
+    const scrollY = window.scrollY;
     const deltaScroll = scrollY - this.previousScrollY;
     const rotationSpeed = 0.005;
     const rotationAmount = deltaScroll * rotationSpeed;
@@ -191,8 +207,20 @@ export class HeroComponent implements AfterViewInit {
     this.cube3.rotation.x += rotationAmount;
   }
 
-  private animate(): void {
-    requestAnimationFrame(() => this.animate());
+  // private animate(): void {
+  //   requestAnimationFrame(() => this.animate());
+  //   this.renderer.render(this.scene, this.camera);
+  // }
+  public animate(): void {
+    this.ngZone.runOutsideAngular(() => {
+      if (document.readyState !== 'loading') {
+        this.render();
+      }
+    });
+  }
+
+  public render(): void {
+    requestAnimationFrame(() => this.render());
     this.renderer.render(this.scene, this.camera);
   }
 }
