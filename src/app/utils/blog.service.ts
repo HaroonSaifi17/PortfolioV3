@@ -1,20 +1,22 @@
-import { Inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as marked from 'marked';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
-  blogContent: { [key: string]: string } = {};
-  http = Inject(HttpClient);
+  blogContent: { [key: string]: Observable<string> } = {};
+  http = inject(HttpClient);
 
-  async getBlogContent(path: string): Promise<string> {
+  getBlogContent(path: string): Observable<string> {
     if (!this.blogContent[path]) {
-      const content = await this.http
-        .get(`/assets/blog/${path}.md`, { responseType: 'text' })
-        .toPromise();
-      this.blogContent[path] = await marked.parse(content);
+      this.blogContent[path] = this.http
+        .get(`/blog/${path}.md`, { responseType: 'text' })
+        .pipe(
+          map((data: string) => marked.parse(data).toString())
+        );
     }
     return this.blogContent[path];
   }

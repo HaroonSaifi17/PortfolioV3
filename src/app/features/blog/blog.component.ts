@@ -1,20 +1,31 @@
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+} from '@angular/core';
 import { BlogService } from '../../utils/blog.service';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe],
   templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss'
+  styleUrl: './blog.component.scss',
 })
 export class BlogComponent {
   BlogService = inject(BlogService);
   ActivatedRoute = inject(ActivatedRoute);
-  blogInfo = this.ActivatedRoute.data.pipe(map(data => data));
-  blogContent = this.BlogService.getBlogContent(this.ActivatedRoute.url.subscribe(url=>{
-    return url.[0].path;
-  }));
+  blogContent$ = new Observable<string>();
+  elementRef = inject(ElementRef);
+  constructor() {
+    this.ActivatedRoute.url.subscribe((url) => {
+      this.blogContent$ = this.BlogService.getBlogContent(url[0].path);
+    });
+    this.blogContent$.subscribe((content) => {
+      this.elementRef.nativeElement.innerHTML = content;
+    });
+  }
 }

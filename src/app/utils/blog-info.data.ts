@@ -9,4 +9,12 @@ export const blogInfo: BlogInfo[] = [
       date: '2020-01-01',
     },
   },
+  {
+    path: 'second-post',
+    data: {
+      title: 'Second Post',
+      description: 'This is the second post',
+      date: '2020-01-02',
+    },
+  }
 ];
