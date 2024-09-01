@@ -1,14 +1,22 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { BlogsComponent } from './pages/blogs/blogs.component';
+import { blogInfo } from './utils/blog-info.data';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () =>
+      import('./features/home/home.component').then((m) => m.HomeComponent),
   },
   {
-    path:'blogs',
-    component: BlogsComponent,
+    path: 'blog',
+    children: blogInfo.map((blog) => ({
+      loadComponent: () =>
+        import('./features/blog/blog.component').then((m) => m.BlogComponent),
+      ...blog,
+    })),
+  },
+  {
+    path: '**',
+    redirectTo: '',
   }
 ];
