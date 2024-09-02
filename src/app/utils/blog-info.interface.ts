@@ -5,5 +5,6 @@ export interface BlogInfo extends Route {
     title: string;
     description: string;
     date: string;
+    keywords?: string[];
   };
 }

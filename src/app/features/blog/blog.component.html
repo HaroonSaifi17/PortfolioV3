@@ -1,0 +1,4 @@
+@if (blogInfo$ | async; as blogInfo) {
+  <h2>{{ blogInfo["date"] }}</h2>
+}
+<div [innerHTML]="blogContent$ | async" class="blog-container"></div>
