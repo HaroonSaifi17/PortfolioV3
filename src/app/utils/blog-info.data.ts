@@ -2,12 +2,20 @@ import { BlogInfo } from './blog-info.interface';
 
 export const blogInfo: BlogInfo[] = [
   {
-    path: 'first-post',
+    path: 'navigating-frequent-framework-updates',
     data: {
-      title: 'First Post',
-      keywords: ['first', 'post'],
-      description: 'This is the first post',
-      date: '2020-01-01',
+      title: "Navigating Frequent Framework Updates: A Developer's Dilemma",
+      description:
+        'A concise look at the challenges developers face with constant updates in frontend frameworks, with an example using Angular Signals.',
+      date: '2024-09-03',
+      keywords: [
+        'Frontend',
+        'Web Development',
+        'Framework Updates',
+        'Angular',
+        'Signals',
+        'Developer Challenges',
+      ],
     },
   },
   {
@@ -18,5 +26,5 @@ export const blogInfo: BlogInfo[] = [
       description: 'This is the second post',
       date: '2020-01-02',
     },
-  }
+  },
 ];

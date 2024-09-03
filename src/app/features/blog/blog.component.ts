@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Component,
   ElementRef,
   inject,
@@ -9,6 +8,7 @@ import { BlogService } from '../../utils/blog.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog',
@@ -23,13 +23,20 @@ export class BlogComponent {
   ActivatedRoute = inject(ActivatedRoute);
   blogContent$ = new Observable<string>();
   elementRef = inject(ElementRef);
-  blogInfo$ = this.ActivatedRoute.data
+  blogInfo$ = this.ActivatedRoute.data;
+  meta = inject(Meta);
+  title = inject(Title);
   constructor() {
     this.ActivatedRoute.url.subscribe((url) => {
       this.blogContent$ = this.BlogService.getBlogContent(url[0].path);
     });
-    this.ActivatedRoute.data.subscribe((data) => {
-     console.log(data);
+    this.blogInfo$.subscribe((data) => {
+      this.title.setTitle(data['title']);
+      this.meta.addTags([
+        { name: 'description', content: data['description'] },
+        { name: 'keywords', content: data['keywords'] },
+        { name: 'author', content: 'Haroon' },
+      ]);
     });
   }
 }
