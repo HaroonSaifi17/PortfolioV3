@@ -1,11 +1,13 @@
-<main class="blog-container ">
+<main class="blog-container">
   @if (blogInfo$ | async; as blogInfo) {
-  <h1>{{ blogInfo["title"] }}</h1>
-  <h3>{{ blogInfo["date"] }}</h3>
-  @for (keyword of blogInfo["keywords"]; track keyword) {
-  <span>{{ keyword }}</span>
-  }
+  <div>
+    <h1>{{ blogInfo["title"] }}</h1>
+    <h4>{{ blogInfo["date"] }}</h4>
+    @for (keyword of blogInfo["keywords"]; track keyword) {
+    <span>#{{ keyword }}</span>
+    }
+  </div>
   }
   <section [innerHTML]="blogContent$ | async"></section>
 </main>
-<section>
+<section></section>
