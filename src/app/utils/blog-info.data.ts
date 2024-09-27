@@ -16,13 +16,4 @@ export const blogInfo: BlogInfo[] = [
       ],
     },
   },
-  {
-    path: 'second-post',
-    data: {
-      title: 'Second Post',
-      keywords: ['second', 'post'],
-      description: 'This is the second post',
-      date: '2020-01-02',
-    },
-  },
 ];
