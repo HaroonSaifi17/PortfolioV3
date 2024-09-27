@@ -2,10 +2,12 @@
   @if (blogInfo$ | async; as blogInfo) {
   <div>
     <h1>{{ blogInfo["title"] }}</h1>
-    <h4>Published on {{ blogInfo["date"] }}</h4>
-    @for (keyword of blogInfo["keywords"]; track keyword) {
-    <span>{{ keyword }}</span>
-    }
+    <h3>Published on {{ blogInfo["date"] }}</h3>
+    <div>
+      @for (keyword of blogInfo["keywords"]; track keyword) {
+      <span>{{ keyword }}</span>
+      }
+    </div>
   </div>
   }
   <section [innerHTML]="blogContent$ | async"></section>

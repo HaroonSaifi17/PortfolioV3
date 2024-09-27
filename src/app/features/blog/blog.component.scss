@@ -3,9 +3,10 @@
   max-width: 1000px;
   padding: 0 5vw;
 
-  h4 {
+  h3 {
     margin-top: 10px;
     font-weight: 400;
+    font-size: 18px;
   }
 
   h2 {
@@ -18,6 +19,11 @@
     margin: 0 -20px;
     padding: 30px 20px;
     background-color: var(--slate-200);
+   div{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
   }
 
   h1 {
@@ -27,7 +33,6 @@
   span {
     background-color: var(--slate-300);
     padding: 4px 6px;
-    margin-right: 10px;
     border-radius: 50px;
     color: var(--slate-600);
   }

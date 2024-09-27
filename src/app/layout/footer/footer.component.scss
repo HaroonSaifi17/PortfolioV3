@@ -1,0 +1,17 @@
+div {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 5vw;
+}
+a{
+  color: var(--slate-500);
+  text-decoration: none;
+}
+i{
+  font-size: 25px;
+}
