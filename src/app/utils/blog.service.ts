@@ -23,7 +23,7 @@ export class BlogService {
 
   constructor() {}
   getBlogContent(path: string): Observable<string> {
-    if (!this.blogContent[path]) {
+    if (this.blogContent[path]===undefined) {
       this.blogContent[path] = this.http
         .get(`/blog/${path}.md`, { responseType: 'text' })
         .pipe(map((data: string) => this.marked.parse(data).toString()));

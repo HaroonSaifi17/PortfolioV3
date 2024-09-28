@@ -48,7 +48,7 @@ export class BlogComponent {
         const piCopy = this.renderer.createElement('i');
         this.renderer.addClass(piCopy, 'pi');
         this.renderer.addClass(piCopy, 'pi-copy');
-        const button = this.renderer.createElement('a');
+        const button = this.renderer.createElement('span');
         this.renderer.appendChild(button, piCopy);
         this.renderer.addClass(button, 'copy-button');
 
