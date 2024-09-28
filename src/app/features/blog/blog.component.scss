@@ -2,6 +2,7 @@
   margin: 50px auto;
   max-width: 1000px;
   padding: 0 5vw;
+  margin-top: 20px;
 
   h3 {
     margin-top: 10px;
@@ -19,7 +20,8 @@
     margin: 0 -20px;
     padding: 30px 20px;
     background-color: var(--slate-200);
-   div{
+
+    div {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
@@ -30,7 +32,7 @@
     margin: 0;
   }
 
-  span {
+  >span {
     background-color: var(--slate-300);
     padding: 4px 6px;
     border-radius: 50px;
@@ -41,6 +43,10 @@
     background-color: var(--slate-200);
     padding: 30px;
     border-radius: 5px;
+    position: relative;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
   }
 
   p {
@@ -50,10 +56,6 @@
   li {
     margin: 5px 0;
   }
-
-  code {
-    white-space: pre-wrap;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,11 +64,39 @@
     pre,
     div {
       background-color: var(--slate-900);
+      overflow-x: scroll;
     }
 
-    span {
+    >span {
       background-color: var(--slate-800);
       color: var(--slate-400);
     }
   }
+}
+
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-color: var(--slate-300);
+  box-shadow: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--slate-600);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--slate-400);
+  }
+
+  i {
+    text-shadow: none;
+  }
+}
+
+span {
+  text-shadow: none;
 }
