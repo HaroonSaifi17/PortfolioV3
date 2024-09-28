@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  afterRender,
   Component,
   ElementRef,
   inject,
@@ -20,7 +20,7 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrl: './blog.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class BlogComponent implements AfterViewInit {
+export class BlogComponent {
   BlogService = inject(BlogService);
   ActivatedRoute = inject(ActivatedRoute);
   blogContent$ = new Observable<string>();
@@ -41,29 +41,29 @@ export class BlogComponent implements AfterViewInit {
         { name: 'author', content: 'Haroon' },
       ]);
     });
-  }
-  ngAfterViewInit(): void {
-    const codeBlocks: HTMLElement[] =
-      this.elementRef.nativeElement.querySelectorAll('pre code');
-    codeBlocks.forEach((codeBlock: HTMLElement) => {
-      const piCopy = this.renderer.createElement('i');
-      this.renderer.addClass(piCopy, 'pi');
-      this.renderer.addClass(piCopy, 'pi-copy');
-      const button = this.renderer.createElement('a');
-      this.renderer.appendChild(button, piCopy);
-      this.renderer.addClass(button, 'copy-button');
+    afterRender(() => {
+      const codeBlocks: HTMLElement[] =
+        this.elementRef.nativeElement.querySelectorAll('pre code');
+      codeBlocks.forEach((codeBlock: HTMLElement) => {
+        const piCopy = this.renderer.createElement('i');
+        this.renderer.addClass(piCopy, 'pi');
+        this.renderer.addClass(piCopy, 'pi-copy');
+        const button = this.renderer.createElement('a');
+        this.renderer.appendChild(button, piCopy);
+        this.renderer.addClass(button, 'copy-button');
 
-      this.renderer.listen(button, 'click', () => {
-        this.copyToClipboard(codeBlock.innerText);
-        piCopy.classList.remove('pi-copy');
-        piCopy.classList.add('pi-check');
-        setTimeout(() => {
-          piCopy.classList.remove('pi-check');
-          piCopy.classList.add('pi-copy');
-        }, 2000);
+        this.renderer.listen(button, 'click', () => {
+          this.copyToClipboard(codeBlock.innerText);
+          piCopy.classList.remove('pi-copy');
+          piCopy.classList.add('pi-check');
+          setTimeout(() => {
+            piCopy.classList.remove('pi-check');
+            piCopy.classList.add('pi-copy');
+          }, 2000);
+        });
+
+        this.renderer.appendChild(codeBlock.parentElement, button);
       });
-
-      this.renderer.appendChild(codeBlock.parentElement, button);
     });
   }
 

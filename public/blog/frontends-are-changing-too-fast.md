@@ -25,7 +25,9 @@ const counter = signal(0);
 counter.set(counter() + 1);
 
 // React to changes
-counter.subscribe(value => console.log(`Counter updated: ${value}`));
+counter.subscribe(value => 
+  console.log(`Counter updated: ${value}`)
+);
 ```
 
 
