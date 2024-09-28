@@ -40,13 +40,10 @@
   }
 
   pre {
-    background-color: var(--slate-200);
-    padding: 30px;
     border-radius: 5px;
     position: relative;
-    border: none;
-    box-shadow: none;
     font-size: 14px;
+    overflow-x: scroll;
   }
 
   p {
@@ -61,15 +58,12 @@
 @media (prefers-color-scheme: dark) {
   .blog-container {
 
-    pre,
-    div {
-      background-color: var(--slate-900);
-      overflow-x: scroll;
-    }
-
     >span {
       background-color: var(--slate-800);
       color: var(--slate-400);
+    }
+    div {
+      background-color: var(--slate-900);
     }
   }
 }
@@ -95,8 +89,4 @@
   i {
     text-shadow: none;
   }
-}
-
-span {
-  text-shadow: none;
 }

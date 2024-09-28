@@ -1,9 +1,9 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   inject,
   Renderer2,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { BlogService } from '../../utils/blog.service';
@@ -11,10 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
-import * as Prism from 'prismjs';
-
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-typescript';
 
 @Component({
   selector: 'app-blog',
@@ -24,7 +20,7 @@ import 'prismjs/components/prism-typescript';
   styleUrl: './blog.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class BlogComponent {
+export class BlogComponent implements AfterViewInit {
   BlogService = inject(BlogService);
   ActivatedRoute = inject(ActivatedRoute);
   blogContent$ = new Observable<string>();
@@ -50,7 +46,6 @@ export class BlogComponent {
     const codeBlocks: HTMLElement[] =
       this.elementRef.nativeElement.querySelectorAll('pre code');
     codeBlocks.forEach((codeBlock: HTMLElement) => {
-      Prism.highlightElement(codeBlock);
       const piCopy = this.renderer.createElement('i');
       this.renderer.addClass(piCopy, 'pi');
       this.renderer.addClass(piCopy, 'pi-copy');
@@ -71,6 +66,7 @@ export class BlogComponent {
       this.renderer.appendChild(codeBlock.parentElement, button);
     });
   }
+
   copyToClipboard(code: string) {
     navigator.clipboard.writeText(code);
   }

@@ -31,7 +31,10 @@
               "src/robots.txt",
               "src/sitemap.xml"
             ],
-            "styles": ["src/styles.scss","node_modules/prismjs/themes/prism-dark.css"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/highlight.js/styles/tokyo-night-dark.css",
+            ],
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": {
@@ -92,7 +95,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         }
