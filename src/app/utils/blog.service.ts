@@ -11,6 +11,7 @@ import { map, Observable } from 'rxjs';
 export class BlogService {
   blogContent: { [key: string]: Observable<string> } = {};
   http = inject(HttpClient);
+
   marked = new Marked(
     markedHighlight({
       langPrefix: 'hljs language-',
@@ -22,12 +23,31 @@ export class BlogService {
   );
 
   constructor() {}
+
   getBlogContent(path: string): Observable<string> {
-    if (this.blogContent[path]===undefined) {
+    if (!this.blogContent[path]) {
       this.blogContent[path] = this.http
         .get(`/blog/${path}.md`, { responseType: 'text' })
-        .pipe(map((data: string) => this.marked.parse(data).toString()));
+        .pipe(
+          map((data: string) =>
+            this.addCopyButtonToCodeBlocks(this.marked.parse(data).toString()),
+          ),
+        );
     }
     return this.blogContent[path];
+  }
+
+  addCopyButtonToCodeBlocks(htmlContent: string): string {
+    return htmlContent.replace(
+      /<pre(?:\s[^>]*)?>\s*<code(?:\s[^>]*)?>(.*?)<\/code>\s*<\/pre>/gs,
+      (match, _codeContent) => {
+        const copyButtonHtml = `
+        <span class="copy-button">
+          <i class="pi pi-copy"></i>
+        </span>
+      `;
+        return `<div class="code">${match}${copyButtonHtml}</div>`;
+      },
+    );
   }
 }

@@ -42,31 +42,17 @@ export class BlogComponent {
       ]);
     });
     afterRender(() => {
-      const codeBlocks: HTMLElement[] =
-        this.elementRef.nativeElement.querySelectorAll('pre code');
-      codeBlocks.forEach((codeBlock: HTMLElement) => {
-        const piCopy = this.renderer.createElement('i');
-        this.renderer.addClass(piCopy, 'pi');
-        this.renderer.addClass(piCopy, 'pi-copy');
-        const button = this.renderer.createElement('span');
-        this.renderer.appendChild(button, piCopy);
-        this.renderer.addClass(button, 'copy-button');
-
+      const copyButtons =
+        this.elementRef.nativeElement.querySelectorAll('.copy-button');
+      copyButtons.forEach((button: HTMLSpanElement) => {
         this.renderer.listen(button, 'click', () => {
-          this.copyToClipboard(codeBlock.innerText);
-          piCopy.classList.remove('pi-copy');
-          piCopy.classList.add('pi-check');
-          setTimeout(() => {
-            piCopy.classList.remove('pi-check');
-            piCopy.classList.add('pi-copy');
-          }, 2000);
+          this.copyToClipboard(
+            button.parentElement!.querySelector('code')!.innerText as string,
+          );
         });
-
-        this.renderer.appendChild(codeBlock.parentElement, button);
       });
     });
   }
-
   copyToClipboard(code: string) {
     navigator.clipboard.writeText(code);
   }

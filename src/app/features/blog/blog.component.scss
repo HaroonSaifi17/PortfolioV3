@@ -44,7 +44,6 @@
 
   pre {
     border-radius: 5px;
-    position: relative;
     font-size: 14px;
     overflow-x: scroll;
   }
@@ -55,6 +54,9 @@
 
   li {
     margin: 5px 0;
+  }
+  .code{
+    position: relative;
   }
 }
 
