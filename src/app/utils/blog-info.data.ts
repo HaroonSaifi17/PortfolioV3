@@ -4,44 +4,56 @@ export const blogInfo: BlogInfo[] = [
   {
     path: 'frontends-are-changing-too-fast',
     data: {
-      title: "Isn't Frontend libraries changing too fast?",
+      title: "Isn't Frontend libraries changing too fast? The hidden truth",
       description:
-        'A concise look at the challenges developers face with constant updates in frontend frameworks, with an example using Angular Signals.',
+        'Discover the shocking reality behind rapidly changing frontend frameworks and why it’s hurting developers. Learn how Angular Signals might be the game-changer.',
       date: '2024-09-27',
       keywords: [
         'Frontend',
-        'Framework Updates',
+        'Updates',
         'Angular',
         'Signals',
+        'Trading',
+        'Web',
+        'Tech',
       ],
     },
   },
   {
     path: 'tech-companies-are-ruining-our-lives',
     data: {
-      title: 'Tech companies are ruining our lives',
+      title:
+        'How tech companies are secretly ruining our lives – you won’t believe it!',
       description:
-        'A brief look at the impact of tech companies on our lives and how they fooling us',
+        'Explore how tech giants manipulate our daily lives and impact mental health. Are we all falling into their trap? The truth might shock you.',
       date: '2024-09-28',
       keywords: [
-        'Hackethon',
+        'Tech',
         'Impact',
+        'Health',
         'Hiring',
+        'Trading',
+        'Life',
+        'Giants',
       ],
     },
   },
   {
     path: 'how-to-setup-zoneless-angular-project',
     data: {
-      title: 'How to setup zoneless Angular project',
+      title: 'Set up your Angular project without zones – Ultimate Guide',
       description:
-        'A step-by-step guide to setting up a zoneless Angular project',
+        'Learn how to easily set up a zoneless Angular project with this step-by-step guide. Unlock faster performance and better control over your app.',
       date: '2024-09-29',
       keywords: [
         'Angular',
         'Zoneless',
-        'Project Setup',
+        'Setup',
+        'Performance',
+        'Trading',
+        'Tech',
+        'Guide',
       ],
     },
-  }
+  },
 ];
