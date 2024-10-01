@@ -61,16 +61,12 @@ export class BlogComponent {
     const day = new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(
       date,
     );
-    let month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+    let month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
       date,
     );
     const year = new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(
       date,
     );
-    if (month === 'Sep') {
-      month = 'Sept';
-    }
-
     return `${day} ${month}, ${year}`;
   }
 }
