@@ -31,3 +31,15 @@ zone.js is a library that helps track changes across asynchronous operations, li
    ```
 
 4. Check if zone.js is removed from project by console logging the Zone object in browser console.
+   
+   ![console log](https://haroonsaifi.tech/images/console-log.jpg)
+
+
+## Use Angular Signal's for Change Detection 
+
+Angular 18 introduced new feature called Angular Signal's, which is a new way to trigger change detection in Angular. Feel free to read more about Angular Signal's in [official documentation](https://angular.dev/guide).
+
+## Conclusion 
+
+In this blog i give you the brief introduction of zone.js, how to setup zoneless project and how to use angular signal's for change detection. I hope you like this blog. If you have any question then feel free to ask me in email.
+
