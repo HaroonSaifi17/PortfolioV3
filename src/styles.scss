@@ -23,7 +23,7 @@ html {
 
 html {
   background-color: var(--slate-50);
-  color: var(--slate-950);
+  color: var(--slate-800);
 }
 
 body {
@@ -34,6 +34,6 @@ body {
 @media (prefers-color-scheme: dark) {
   html {
     background-color: var(--slate-950);
-    color: var(--slate-50);
+    color: var(--slate-200);
   }
 }

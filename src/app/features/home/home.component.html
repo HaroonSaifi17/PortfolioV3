@@ -1,5 +1,12 @@
 <section>
-<a routerLink="/blog/frontends-are-changing-too-fast">frontends-are-changing-too-fast</a> <br>
-<a routerLink="/blog/how-to-setup-zoneless-angular-project">how-to-setup-zoneless-angular-project</a> <br>
-<a routerLink="/blog/tech-companies-are-ruining-our-lives">tech-companies-are-ruining-our-lives</a>
+  <div class="home-blog">
+    <h1>Blogs</h1>
+    <div class="home-blog-list">
+      @for(blog of blogInfo;track blog.path){
+      <div class="home-blog-item">
+        <span>{{blog.data.date}}</span><a [routerLink]="'blog/'+ blog.path">{{blog.data.title}}</a>
+      </div>
+      }
+    </div>
+  </div>
 </section>
