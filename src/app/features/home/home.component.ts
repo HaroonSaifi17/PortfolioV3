@@ -32,4 +32,21 @@ export class HomeComponent {
       { name: 'author', content: 'Mohd Haroon' },
     ]);
   }
+  formatDate(dateStr: string) {
+    const date = new Date(dateStr);
+    const day = new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(
+      date,
+    );
+    let month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+      date,
+    );
+    const year = new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(
+      date,
+    );
+    if (month === 'Sep') {
+      month = 'Sept';
+    }
+
+    return `${day} ${month}, ${year}`;
+  }
 }

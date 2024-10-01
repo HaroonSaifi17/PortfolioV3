@@ -2,7 +2,7 @@
   @if (blogInfo$ | async; as blogInfo) {
   <div>
     <h1>{{ blogInfo["title"] }}</h1>
-    <h3>Published on {{ blogInfo["date"] }}</h3>
+    <h3>Published on {{ formatDate(blogInfo["date"]) }}</h3>
     <div>
       @for (keyword of blogInfo["keywords"]; track keyword) {
       <span>{{ keyword }}</span>

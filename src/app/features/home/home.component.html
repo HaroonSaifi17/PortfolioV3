@@ -4,7 +4,7 @@
     <div class="home-blog-list">
       @for(blog of blogInfo;track blog.path){
       <div class="home-blog-item">
-        <span>{{blog.data.date}}</span><a [routerLink]="'blog/'+ blog.path">{{blog.data.title}}</a>
+        <span>{{formatDate(blog.data.date)}}</span><a [routerLink]="'blog/'+ blog.path">{{blog.data.title}}</a>
       </div>
       }
     </div>
