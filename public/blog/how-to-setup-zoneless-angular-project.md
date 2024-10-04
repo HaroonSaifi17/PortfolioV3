@@ -32,7 +32,7 @@ zone.js is a library that helps track changes across asynchronous operations, li
 
 4. Check if zone.js is removed from project by console logging the Zone object in browser console.
    
-   ![console log](https://haroonsaifi.tech/images/console-log.jpg)
+   ![console log](https://haroonsaifi.tech/images/console-log.webp)
 
 
 ## Use Angular Signal's for Change Detection 
