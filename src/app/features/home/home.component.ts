@@ -27,7 +27,7 @@ export class HomeComponent {
       {
         name: 'keywords',
         content:
-          'full-stack developer, portfolio, Angular, Node.js, JavaScript, web development, front-end, back-end, Express, MongoDB, SQL',
+          'full-stack developer, portfolio, Angular, Node.js, JavaScript, web development, front-end, back-end, Express, MongoDB, SQL, HaroonSaifi17 , Mohd Haroon',
       },
       { name: 'author', content: 'Mohd Haroon' },
     ]);

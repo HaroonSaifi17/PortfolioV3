@@ -1,0 +1,17 @@
+# Ignore node_modules folder
+node_modules
+
+# Ignore npm and yarn lock files
+npm-debug.log
+yarn-error.log
+
+# Ignore logs
+*.log
+
+# Ignore git-related files
+.git
+.gitignore
+
+# Ignore Dockerfile and .dockerignore themselves (optional)
+Dockerfile
+.dockerignore
