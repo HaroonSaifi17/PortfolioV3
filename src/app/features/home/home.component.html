@@ -1,12 +1,19 @@
 <section>
+  <div>
+    <h1>Full stack Developer</h1>
+    <h2>UX/UI Designer</h2>
+    <h3>Freelancer</h3>
+  </div>
+</section>
+<section>
   <div class="home-blog">
-    <p>something change</p>
     <h1>Blogs</h1>
     <div class="home-blog-list">
-      @for(blog of blogInfo;track blog.path){
-      <div class="home-blog-item">
-        <span>{{formatDate(blog.data.date)}}</span><a [routerLink]="'blog/'+ blog.path">{{blog.data.title}}</a>
-      </div>
+      @for (blog of blogInfo; track blog.path) {
+        <div class="home-blog-item">
+          <span>{{ formatDate(blog.data.date) }}</span
+          ><a [routerLink]="'blog/' + blog.path">{{ blog.data.title }}</a>
+        </div>
       }
     </div>
   </div>
