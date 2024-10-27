@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { blogInfo } from '../../utils/blog-info.data';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, NgOptimizedImage],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -15,6 +15,7 @@ export class HomeComponent {
   title = inject(Title);
   meta = inject(Meta);
   blogInfo = blogInfo;
+  arcText = " | Fontent | UI/UX | Backend";
   constructor() {
     this.title.setTitle('Portfolio');
 
