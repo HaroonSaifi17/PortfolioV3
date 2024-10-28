@@ -2,12 +2,15 @@ import { Component, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { blogInfo } from '../../utils/blog-info.data';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { HeroComponent } from '../../layout/hero/hero.component';
+import { AboutComponent } from '../../layout/about/about.component';
+import { ProjectsComponent } from '../../layout/projects/projects.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgOptimizedImage],
+  imports: [RouterLink, CommonModule, HeroComponent, AboutComponent, ProjectsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -15,7 +18,6 @@ export class HomeComponent {
   title = inject(Title);
   meta = inject(Meta);
   blogInfo = blogInfo;
-  arcText = ' | Frontent | UI/UX | Backend';
   constructor() {
     this.title.setTitle('Mohd Haroon | Full-Stack Developer Portfolio');
 

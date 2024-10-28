@@ -1,36 +1,9 @@
-<section>
-  <div class="hero">
-    <h1 class="hero-heading">
-      Creating digital experiences people actually enjoy using
-    </h1>
-    <div class="hero-subsection">
-      <div class="hero-arc">
-        <div class="hero-wpr">
-          <div>
-            <div class="arc-text">
-              @for (char of arcText; let i = $index; track i) {
-                <span [style.rotate]="i * 12 + 'deg'">{{ char }}</span>
-              }
-            </div>
-          </div>
-          <div>
-            <img ngSrc="/images/haroon.webp" alt="" width="60" height="60" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3 class="hero-subheading">
-          I'm a web developer with 2 years of experience, based on India. I
-          mostly enjoy building software in the sweet spot where engineering and
-          design meet.
-        </h3>
-      </div>
-    </div>
-  </div>
-</section>
+<app-hero></app-hero>
+<app-projects></app-projects>
+<app-about></app-about>
 <section>
   <div class="home-blog">
-    <h1>Blogs</h1>
+    <h1>BLOGS</h1>
     <div class="home-blog-list">
       @for (blog of blogInfo; track blog.path) {
         <div class="home-blog-item">

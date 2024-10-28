@@ -1,0 +1,13 @@
+section{
+  >div{
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 5vw;
+    >h2{
+      font-size: 30px;
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+  }
+}
