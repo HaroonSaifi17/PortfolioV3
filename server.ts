@@ -28,15 +28,6 @@ export function app(): express.Express {
     }),
   );
 
-  server.use((req, res, next) => {
-    if (req.headers.host!.startsWith('www.')) {
-      // Remove 'www.' from the host
-      const newHost = req.headers.host!.slice(4);
-      return res.redirect(301, `${req.protocol}://${newHost}${req.url}`);
-    }
-    next();
-  });
-
   // All regular routes use the Angular engine
   server.get('**', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;

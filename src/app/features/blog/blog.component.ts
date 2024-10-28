@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -29,16 +30,88 @@ export class BlogComponent {
   meta = inject(Meta);
   title = inject(Title);
   renderer = inject(Renderer2);
+  router = inject(Router);
   constructor() {
     this.ActivatedRoute.url.subscribe((url) => {
       this.blogContent$ = this.BlogService.getBlogContent(url[0].path);
     });
     this.blogInfo$.subscribe((data) => {
-      this.title.setTitle(data['title']);
+      this.title.setTitle(`${data['title']} | Haroon's Blog`);
+      const url: string = this.router.url[0] || '';
+      const blogUrl = `https://haroonsaifi.tech/blog/${url}`;
+
       this.meta.addTags([
-        { name: 'description', content: data['description'] },
-        { name: 'keywords', content: data['keywords'] },
-        { name: 'author', content: 'Haroon' },
+        {
+          name: 'description',
+          content: data['description'],
+        },
+        {
+          name: 'keywords',
+          content: data['keywords'],
+        },
+        {
+          name: 'author',
+          content: 'Haroon',
+        },
+        {
+          name: 'robots',
+          content: 'index, follow',
+        },
+
+        {
+          property: 'og:title',
+          content: data['title'],
+        },
+        {
+          property: 'og:description',
+          content: data['description'],
+        },
+        {
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          property: 'og:url',
+          content: blogUrl,
+        },
+        {
+          property: 'og:site_name',
+          content: "Haroon's Blog",
+        },
+        {
+          property: 'article:author',
+          content: 'Haroon',
+        },
+        {
+          property: 'article:published_time',
+          content: data['date'],
+        },
+
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'twitter:site',
+          content: '@HaroonSaifi17',
+        },
+        {
+          name: 'twitter:title',
+          content: data['title'],
+        },
+        {
+          name: 'twitter:description',
+          content: data['description'],
+        },
+        {
+          name: 'twitter:creator',
+          content: '@HaroonSaifi17',
+        },
+
+        {
+          name: 'canonical',
+          content: blogUrl,
+        },
       ]);
     });
     afterRender(() => {

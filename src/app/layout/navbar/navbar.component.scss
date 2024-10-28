@@ -24,6 +24,11 @@ nav div {
   span{
     font-size:20px;
     font-weight:800;
+    text-transform:uppercase;
+    color: var(--slate-600);
+    @media(prefers-color-scheme: dark) {
+      color: var(--slate-300);
+    }
   }
 }
 @media (prefers-color-scheme: dark) {

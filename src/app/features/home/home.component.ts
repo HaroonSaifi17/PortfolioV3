@@ -15,22 +15,75 @@ export class HomeComponent {
   title = inject(Title);
   meta = inject(Meta);
   blogInfo = blogInfo;
-  arcText = " | Fontent | UI/UX | Backend";
+  arcText = ' | Frontent | UI/UX | Backend';
   constructor() {
-    this.title.setTitle('Portfolio');
+    this.title.setTitle('Mohd Haroon | Full-Stack Developer Portfolio');
 
     this.meta.addTags([
       {
         name: 'description',
         content:
-          'Full-stack developer portfolio showcasing skills in front-end and back-end development, including projects using Angular, Node.js, and more.',
+          'Full-stack developer portfolio of Mohd Haroon, showcasing expertise in Angular, Node.js, React, MongoDB, and modern web development. View my projects, skills, and professional experience.',
       },
       {
         name: 'keywords',
         content:
-          'full-stack developer, portfolio, Angular, Node.js, JavaScript, web development, front-end, back-end, Express, MongoDB, SQL, HaroonSaifi17 , Mohd Haroon',
+          'full-stack developer, Mohd Haroon, HaroonSaifi17, Angular developer, Node.js developer, React developer, JavaScript expert, web development, front-end development, back-end development, MongoDB, Express.js, SQL, REST API, portfolio, software engineer',
       },
-      { name: 'author', content: 'Mohd Haroon' },
+      {
+        name: 'author',
+        content: 'Mohd Haroon',
+      },
+      {
+        name: 'robots',
+        content: 'index, follow',
+      },
+      {
+        property: 'og:title',
+        content: 'Mohd Haroon | Full-Stack Developer Portfolio',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Explore my full-stack development portfolio featuring projects in Angular, Node.js, React, and more. See how I can help bring your web development projects to life.',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:url',
+        content: 'https://haroonsaifi.tech',
+      },
+      {
+        property: 'og:site_name',
+        content: 'Mohd Haroon Portfolio',
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        name: 'twitter:site',
+        content: '@HaroonSaifi17_',
+      },
+      {
+        name: 'twitter:title',
+        content: 'Mohd Haroon | Full-Stack Developer Portfolio',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Full-stack developer specializing in Angular, Node.js, and modern web technologies. Check out my latest projects and development expertise.',
+      },
+      {
+        'http-equiv': 'Content-Type',
+        content: 'text/html; charset=utf-8',
+      },
+      {
+        name: 'canonical',
+        content: 'https://haroonsaifi.tech',
+      },
     ]);
   }
   formatDate(dateStr: string) {
