@@ -30,6 +30,10 @@
       border:none;
     }
 
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+
     >div {
       display: flex;
       justify-content: space-between;
