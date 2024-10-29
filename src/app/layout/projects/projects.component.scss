@@ -6,10 +6,8 @@
   >h1 {
     font-size: 30px;
     font-weight: 600;
+    opacity: 0.8;
 
-    @media (max-width: 768px) {
-      font-size: 20px;
-    }
   }
 }
 
@@ -21,7 +19,7 @@
 
   &-card {
     width: 300px;
-    background-color: #ededed;
+    background-color: rgba(0, 0, 0, 0.03);
     padding: 20px;
     border-radius: 5px;
 
@@ -40,6 +38,9 @@
     h3 {
       letter-spacing: 1px;
       font-size: 25px;
+      @media (max-width: 777px) {
+        font-size: 20px;
+      }
     }
 
     @media (prefers-color-scheme: dark) {
