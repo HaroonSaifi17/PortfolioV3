@@ -1,6 +1,6 @@
 #logo{
-   height:40px;
-   width:40px;
+   height:50px;
+   width:50px;
 }
 .path{
   fill:transparent;
@@ -18,11 +18,11 @@ nav div {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  max-width:1400px;
+  max-width:1200px;
   margin:0 auto;
   padding:20px 5vw;
   span{
-    font-size:20px;
+    font-size:18px;
     font-weight:800;
     text-transform:uppercase;
     color: var(--slate-600);
