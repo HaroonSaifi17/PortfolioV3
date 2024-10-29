@@ -1,89 +1,28 @@
-<section>
-  <div class="wpr">
-    <h1>PROJECTS</h1>
-    <div class="projects">
-      <div class="projects-card">
-        <div>
-          <span><i class="pi pi-clock"></i>12 month ago </span>
-          <a href="https://prepzone.tech">
-            <i class="pi pi-external-link"></i>
-          </a>
+<section class="projects_section">
+  <div class="projects_container">
+    <h1 class="projects_title">PROJECTS</h1>
+    <div class="projects_grid">
+      @for (project of projects; track project.link) {
+        <div class="projects_card">
+          <div class="projects_card_header">
+            <span class="projects_card_time">
+              <i class="pi pi-clock"></i>{{ project.timeAgo }}
+            </span>
+            <a class="projects_card_link" [href]="project.link">
+              <i class="pi pi-external-link"></i>
+            </a>
+          </div>
+          <h3 class="projects_card_title">
+            {{ project.title }}
+          </h3>
+          <p class="projects_card_description">{{ project.description }}</p>
+          <div class="projects_card_tags">
+            @for (tag of project.tags; track tag) {
+              <span class="projects_card_tag">{{ tag }}</span>
+            }
+          </div>
         </div>
-        <h3>PrepZone</h3>
-        <p>
-          Developed a comprehensive platform for competitive exam preparation
-          with practice tests and instant results
-        </p>
-        <div class="projects-card-tags">
-          <span>Angular</span>
-          <span>Express</span>
-        </div>
-      </div>
-      <div class="projects-card">
-        <div>
-          <span><i class="pi pi-clock"></i>8 month ago </span>
-          <a href="https://sketchomes.com">
-            <i class="pi pi-external-link"></i>
-          </a>
-        </div>
-        <h3>Sketchomes</h3>
-        <p>
-          Built a professional interior design website featuring projects with
-          an interactive 3D photosphere.
-        </p>
-        <div class="projects-card-tags">
-          <span>Angular</span>
-          <span>Tailwind css</span>
-        </div>
-      </div>
-      <div class="projects-card">
-        <div>
-          <span><i class="pi pi-clock"></i>6 month ago </span>
-          <a href="https://gfg-adgips.vercel.app/">
-            <i class="pi pi-external-link"></i>
-          </a>
-        </div>
-        <h3>GeeksforGeeks</h3>
-        <p>
-          Developed a visually appealing website for the college society
-          ”GeeksforGeeks Chapter ADGIPS”.
-        </p>
-        <div class="projects-card-tags">
-          <span>ReactJs</span>
-          <span>NodeJs</span>
-        </div>
-      </div>
-      <div class="projects-card">
-        <div>
-          <span><i class="pi pi-clock"></i>9 month ago </span>
-          <a href="https://hack-n-chill.vercel.app/">
-            <i class="pi pi-external-link"></i>
-          </a>
-        </div>
-        <h3>HackNChill</h3>
-        <p>
-          Created a dynamic hackathon website with a Netflix-inspired UI design and based on Squid Game theme.
-        </p>
-        <div class="projects-card-tags">
-          <span>ReactJs</span>
-        </div>
-      </div>
-      <div class="projects-card">
-        <div>
-          <span><i class="pi pi-clock"></i>3 month ago </span>
-          <a href="https://github.com/HaroonSaifi17/snake-game">
-            <i class="pi pi-external-link"></i>
-          </a>
-        </div>
-        <h3>Snake Game</h3>
-        <p>
-          Developed a terminal-based Snake game with a personal portfolio site
-          for showcasing projects.
-        </p>
-        <div class="projects-card-tags">
-          <span>Rust</span>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </section>

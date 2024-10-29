@@ -1,25 +1,30 @@
-<section>
+<section class="hero_section">
   <div class="hero">
-    <h1 class="hero-heading">
+    <h1 class="hero_title">
       Creating digital experiences people actually enjoy using
     </h1>
-    <div class="hero-subsection">
-      <div class="hero-arc">
-        <div class="hero-wpr">
+    <div class="hero_content">
+      <div class="hero_profile">
+        <div class="hero_profile_wrapper">
           <div>
-            <div class="arc-text">
+            <div class="hero_profile_text">
               @for (char of arcText; let i = $index; track i) {
                 <span [style.rotate]="i * 12 + 'deg'">{{ char }}</span>
               }
             </div>
           </div>
           <div>
-            <img ngSrc="/images/haroon.webp" alt="haroon" width="75" height="75" />
+            <img
+              ngSrc="/images/haroon.webp"
+              alt="haroon"
+              width="75"
+              height="75"
+            />
           </div>
         </div>
       </div>
       <div>
-        <h3 class="hero-subheading">
+        <h3 class="hero_description">
           I'm a web developer with 2 years of experience, based on India. I
           mostly enjoy building software in the sweet spot where engineering and
           design meet.

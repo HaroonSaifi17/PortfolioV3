@@ -10,7 +10,13 @@ import { ProjectsComponent } from '../../layout/projects/projects.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, HeroComponent, AboutComponent, ProjectsComponent],
+  imports: [
+    RouterLink,
+    CommonModule,
+    HeroComponent,
+    AboutComponent,
+    ProjectsComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

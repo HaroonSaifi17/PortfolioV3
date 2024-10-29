@@ -1,20 +1,25 @@
-div {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 5vw;
-}
-a{
-  color: var(--slate-500);
-  text-decoration: none;
-}
-i{
-  font-size: 25px;
-}
-a:hover{
-  color: var(--accent);
+.footer {
+  &_social {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 5vw;
+
+    &_link {
+      color: var(--slate-500);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--accent);
+      }
+
+      i {
+        font-size: 25px;
+      }
+    }
+  }
 }

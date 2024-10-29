@@ -1,15 +1,16 @@
-<main class="blog-container">
+<main class="blog_container">
   @if (blogInfo$ | async; as blogInfo) {
-  <div>
-    <h1>{{ blogInfo["title"] }}</h1>
-    <h3>Published on {{ formatDate(blogInfo["date"]) }}</h3>
-    <div>
-      @for (keyword of blogInfo["keywords"]; track keyword) {
-      <span>{{ keyword }}</span>
-      }
+    <div class="blog_header">
+      <h1 class="blog_header_title">{{ blogInfo["title"] }}</h1>
+      <h3 class="blog_header_date">
+        Published on {{ formatDate(blogInfo["date"]) }}
+      </h3>
+      <div class="blog_header_tags">
+        @for (keyword of blogInfo["keywords"]; track keyword) {
+          <span class="blog_header_tag">{{ keyword }}</span>
+        }
+      </div>
     </div>
-  </div>
   }
-  <section class="markdown-content" [innerHTML]="blogContent$ | async"></section>
+  <section class="blog_content" [innerHTML]="blogContent$ | async"></section>
 </main>
-<section></section>

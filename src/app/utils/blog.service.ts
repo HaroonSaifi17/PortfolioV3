@@ -42,7 +42,7 @@ export class BlogService {
       /<pre(?:\s[^>]*)?>\s*<code(?:\s[^>]*)?>(.*?)<\/code>\s*<\/pre>/gs,
       (match, _codeContent) => {
         const copyButtonHtml = `
-        <span class="copy-button">
+        <span class="copy_button">
           <i class="pi pi-copy"></i>
         </span>
       `;

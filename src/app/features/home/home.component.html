@@ -1,16 +1,22 @@
 <app-hero></app-hero>
 <app-projects></app-projects>
-<section>
-  <div class="home-blog">
-    <h1>BLOGS</h1>
-    <div class="home-blog-list">
+
+<section class="blog_section">
+  <div class="blog_container">
+    <h1 class="blog_title">BLOGS</h1>
+    <div class="blog_list">
       @for (blog of blogInfo; track blog.path) {
-        <div class="home-blog-item">
-          <span>{{ formatDate(blog.data.date) }}</span
-          ><a [routerLink]="'blog/' + blog.path">{{ blog.data.title }}</a>
+        <div class="blog_list_item">
+          <span class="blog_list_item_date">{{
+            formatDate(blog.data.date)
+          }}</span>
+          <a class="blog_list_item_link" [routerLink]="'blog/' + blog.path">
+            {{ blog.data.title }}
+          </a>
         </div>
       }
     </div>
   </div>
 </section>
+
 <app-about></app-about>
