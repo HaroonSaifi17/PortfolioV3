@@ -56,4 +56,22 @@ export const blogInfo: BlogInfo[] = [
       ],
     },
   },
+  {
+    path: 'sacrifice-for-maintaining-superpower-status-the-untold-history-of-the-united-states',
+    data: {
+      title:
+        'Sacrifice for Maintaining Superpower Status: The Untold History of the United States',
+      description:
+        "Explores the challenges and controversies surrounding the United States' pursuit and preservation of its global superpower status, including its role in conflicts, election interference, and control over resources and media.",
+      date: '2024-10-30',
+      keywords: [
+        'United States superpower status',
+        'US foreign policy',
+        'Russia-Ukraine conflict',
+        'election interference',
+        'global resource control',
+        'media manipulation',
+      ],
+    },
+  },
 ];
