@@ -73,13 +73,20 @@
     }
   }
 
+  &_images{
+    background-color:#ededed;
+    border-radius: 15px;
+    padding: 30px;
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--slate-800);
+    }
+  }
+
   &_img_lg {
     width: 100%;
-    border-radius: 15px;
-    border: 1px solid var(--slate-300);
 
     @media (prefers-color-scheme: dark) {
-      filter: invert(1) hue-rotate(170deg);
+      filter: invert(0.85) hue-rotate(170deg) ;
     }
 
     @media (max-width: 550px) {

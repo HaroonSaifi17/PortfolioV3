@@ -3,18 +3,22 @@
 
 <section class="blog_section">
   <div class="blog_container">
-    <h1 class="blog_title">BLOGS</h1>
+      <h1 class="blog_title">BLOGS</h1>
     <div class="blog_list">
       @for (blog of blogInfo; track blog.path) {
-        <div class="blog_list_item">
-          <span class="blog_list_item_date">{{
-            formatDate(blog.data.date)
+      <div class="blog_list_item">
+        <span class="blog_list_item_date">{{
+          formatDate(blog.data.date)
           }}</span>
-          <a class="blog_list_item_link" [routerLink]="'blog/' + blog.path">
-            {{ blog.data.title }}
-          </a>
-        </div>
+        <a class="blog_list_item_link" [routerLink]="'blog/' + blog.path">
+          {{ blog.data.title }}
+        </a>
+      </div>
       }
+    </div>
+
+    <div class="blog_header">
+      <a class="blog_more" href="#">View All<i class="pi pi-arrow-right"></i></a>
     </div>
   </div>
 </section>

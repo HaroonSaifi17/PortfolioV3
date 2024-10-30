@@ -20,7 +20,7 @@
 
   &_card {
     width: 300px;
-    background-color: var(--slate-100);
+    background-color: #ededed;
     padding: 20px;
     border-radius: 5px;
 
@@ -97,10 +97,16 @@
       color: var(--slate-500);
       border-radius: 50px;
       padding: 3px 8px;
+      &:hover {
+        background-color: var(--slate-200);
+      }
 
       @media (prefers-color-scheme: dark) {
         border: 1px solid var(--slate-400);
         color: var(--slate-400);
+        &:hover {
+          background-color: var(--slate-700);
+        }
       }
     }
   }

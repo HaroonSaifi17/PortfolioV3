@@ -74,7 +74,10 @@
 
           &:hover {
             transition-duration: 0.5s;
-            box-shadow: 0 0 10px 0 lightblue;
+            box-shadow: 0 0 10px 0 #1e3a8a;
+            @media (prefers-color-scheme: dark) {
+              box-shadow: 0 0 10px 0 lightblue;
+            }
           }
         }
       }

@@ -7,7 +7,7 @@ import { Directive, ElementRef, HostListener, Renderer2, OnInit, Input } from '@
 export class MouseGlowDirective implements OnInit {
   @Input() glowSize = 600;
   @Input() glowColor = 'rgba(29, 78, 216, 0.15)';
-  @Input() glowFade = 80; // Fade percentage
+  @Input() glowFade = 80;
 
   constructor(
     private el: ElementRef,
@@ -16,7 +16,7 @@ export class MouseGlowDirective implements OnInit {
 
   ngOnInit() {
     this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
-    this.updateGradient(-100, -100);
+    this.updateGradient(0, 0);
   }
 
   @HostListener('mousemove', ['$event'])
