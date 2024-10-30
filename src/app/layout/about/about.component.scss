@@ -74,7 +74,7 @@
   }
 
   &_images{
-    background-color:#ededed;
+    background-color:#f5f5f5;
     border-radius: 15px;
     padding: 30px;
     @media (prefers-color-scheme: dark) {
@@ -97,8 +97,6 @@
   &_img_sm {
     display: none;
     width: 100%;
-    border-radius: 15px;
-    border: 1px solid var(--slate-300);
 
     @media (prefers-color-scheme: dark) {
       filter: invert(1) hue-rotate(170deg);
