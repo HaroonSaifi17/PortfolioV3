@@ -1,4 +1,4 @@
-.blog {blog
+.blog {
   &_container {
     overflow: hidden;
     margin: 0 auto 90px auto;
@@ -84,6 +84,10 @@
       font-size: 14px;
       overflow-x: scroll;
       margin: 30px 0;
+
+      @media (prefers-color-scheme: dark) {
+        border: 0.5px solid var(--slate-700);
+      }
     }
 
     li {
@@ -96,6 +100,11 @@
 
     img {
       max-width: 100%;
+      border: 0.5px solid var(--slate-300);
+
+      @media (prefers-color-scheme: dark) {
+        border: 0.5px solid var(--slate-700);
+      }
     }
   }
 }

@@ -73,8 +73,8 @@
           border-radius: 100%;
 
           &:hover {
-            scale: 1.1;
             transition-duration: 0.5s;
+            box-shadow: 0 0 10px 0 lightblue;
           }
         }
       }

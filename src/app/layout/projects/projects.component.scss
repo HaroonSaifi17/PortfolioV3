@@ -1,14 +1,14 @@
 .projects {
   &_section {
     max-width: 1100px;
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 0 5vw;
   }
 
   &_title {
     font-size: 30px;
     font-weight: 600;
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   &_grid {
@@ -20,7 +20,7 @@
 
   &_card {
     width: 300px;
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: var(--slate-100);
     padding: 20px;
     border-radius: 5px;
 
