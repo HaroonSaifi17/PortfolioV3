@@ -105,10 +105,6 @@ export class HomeComponent {
     const year = new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(
       date,
     );
-    if (month === 'Sep') {
-      month = 'Sept';
-    }
-
     return `${day} ${month}, ${year}`;
   }
 }
