@@ -19,3 +19,4 @@ We all wanted to a good job in big tech companies and we think company wants a g
 ## Conclusion 
 
 In this blog i discuss about how tech companies are ruining our lives and how to prevent yourself from that. I hope you like this blog. If you have any question then feel free to ask me in email. 
+
