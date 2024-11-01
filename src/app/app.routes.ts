@@ -15,11 +15,4 @@ export const routes: Routes = [
       ...blog,
     })),
   },
-  {
-    path: '**',
-    loadComponent: () =>
-      import('./features/not-found/not-found.component').then(
-        (m) => m.NotFoundComponent,
-      ),
-  },
 ];

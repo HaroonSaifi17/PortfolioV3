@@ -34,7 +34,7 @@
       fill: var(--slate-500);
 
       @media (prefers-color-scheme: dark) {
-        fill: var(--slate-300);
+        fill: var(--slate-400);
       }
     }
   }
@@ -81,7 +81,7 @@
         color: var(--slate-300);
 
         &:hover {
-          background-color: var(--slate-800);
+          background-color: rgb(15 23 42);
         }
       }
     }
