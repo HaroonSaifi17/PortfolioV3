@@ -15,4 +15,8 @@ export const routes: Routes = [
       ...blog,
     })),
   },
+  {
+    path:'**',
+    loadComponent: () => import('./layout/not-found/not-found.component').then((m) => m.NotFoundComponent)
+  }
 ];
