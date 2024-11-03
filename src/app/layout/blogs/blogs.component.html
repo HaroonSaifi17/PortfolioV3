@@ -1,0 +1,25 @@
+<section>
+  <div class="blog">
+    <h1 class="blog_heading">Blogs</h1>
+    <div class="blog_list">
+      @for (blog of blogInfo; track blog.path) {
+        <div class="blog_list_item">
+          <div class="blog_list_item_date">
+            {{ formatDate(blog.data.date) }}
+          </div>
+          <a class="blog_list_link" [routerLink]="'/blog/' + blog.path">
+            <h2>{{ blog.data.title }}</h2>
+          </a>
+          <p>{{ blog.data.description }}</p>
+          <div class="blog_list_keywords">
+            @for (keyword of blog.data.keywords; track i; let i = $index) {
+              @if (i < 4) {
+                <span class="blog_list_keyword">#{{ keyword }}</span>
+              }
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

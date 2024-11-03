@@ -16,7 +16,19 @@ export const routes: Routes = [
     })),
   },
   {
-    path:'**',
-    loadComponent: () => import('./layout/not-found/not-found.component').then((m) => m.NotFoundComponent)
-  }
+    path: 'blogs',
+    loadComponent: () =>
+      import('./layout/blogs/blogs.component').then((m) => m.BlogsComponent),
+  },
+  {
+    path: 'error',
+    loadComponent: () =>
+      import('./layout/not-found/not-found.component').then(
+        (m) => m.NotFoundComponent,
+      ),
+  },
+  {
+    path: '**',
+    redirectTo: 'error',
+  },
 ];

@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-import { blogInfo } from '../../utils/blog-info.data';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../../layout/hero/hero.component';
 import { AboutComponent } from '../../layout/about/about.component';
 import { ProjectsComponent } from '../../layout/projects/projects.component';
+import { BlogInfo } from '../../utils/blog-info.interface';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,30 @@ import { ProjectsComponent } from '../../layout/projects/projects.component';
 export class HomeComponent {
   title = inject(Title);
   meta = inject(Meta);
-  blogInfo = blogInfo;
+  blogInfo = [
+    {
+      path: 'frontends-are-changing-too-fast',
+      title: "Isn't Frontend libraries changing too fast? The hidden truth",
+      date: '2024-09-27',
+    },
+    {
+      path: 'tech-companies-are-ruining-our-lives',
+      title:
+        'How tech companies are secretly ruining our lives – you won’t believe it!',
+      date: '2024-09-28',
+    },
+    {
+      path: 'how-to-setup-zoneless-angular-project',
+      title: 'Set up your Angular project without zones – Ultimate Guide',
+      date: '2024-09-29',
+    },
+    {
+      path: 'sacrifice-for-maintaining-superpower-status-the-untold-history-of-the-united-states',
+      title:
+        'Sacrifice for Maintaining Superpower Status: The Untold History of the United States',
+      date: '2024-10-30',
+    },
+  ];
   constructor() {
     this.title.setTitle('Mohd Haroon | Full-Stack Developer Portfolio');
 
