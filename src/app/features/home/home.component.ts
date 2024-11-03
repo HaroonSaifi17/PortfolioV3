@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../../layout/hero/hero.component';
 import { AboutComponent } from '../../layout/about/about.component';
 import { ProjectsComponent } from '../../layout/projects/projects.component';
-import { BlogInfo } from '../../utils/blog-info.interface';
 
 @Component({
   selector: 'app-home',
@@ -30,11 +29,11 @@ export class HomeComponent {
       date: '2024-09-27',
     },
     {
-      path: 'tech-companies-are-ruining-our-lives',
-      title:
-        'How tech companies are secretly ruining our lives – you won’t believe it!',
-      date: '2024-09-28',
+      path: 'i-tried-azure-web-app-and-its-frustrating',
+      title: "I tried Azure Web App, and it's frustrating",
+      date: '2024-11-03',
     },
+
     {
       path: 'how-to-setup-zoneless-angular-project',
       title: 'Set up your Angular project without zones – Ultimate Guide',

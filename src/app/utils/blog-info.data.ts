@@ -78,4 +78,28 @@ export const blogInfo: BlogInfo[] = [
       ],
     },
   },
+  {
+    path: 'i-tried-azure-web-app-and-its-frustrating',
+    data: {
+      title: "I tried Azure Web App, and it's frustrating",
+      description:
+        'Challenges I faced deploying my app to Azure Web App. Unexpected errors made my experience with Microsoft Azure frustrating and difficult.',
+      date: '2024-11-03',
+      keywords: [
+        'Azure',
+        'Cloud',
+        'Web',
+        'App',
+        'Azure Deployment Challenges',
+        'Cloud Hosting with Microsoft',
+        'App Deployment Issues',
+        'Containerization in Azure',
+        'Azure Student Plan Limitations',
+        'Docker and Azure Integration',
+        'Cloud Infrastructure Troubleshooting',
+        'Continuous Deployment Azure',
+        'Site Downtime and Error Handling',
+      ],
+    },
+  },
 ];
