@@ -38,10 +38,6 @@
     line-height: 1.4;
     max-width: 65ch;
     color: var(--slate-600);
-
-    @media (prefers-color-scheme: dark) {
-      color: var(--slate-300);
-    }
   }
 
   &_profile {
@@ -75,9 +71,6 @@
           &:hover {
             transition-duration: 0.5s;
             box-shadow: 0 0 10px 0 #1e3a8a;
-            @media (prefers-color-scheme: dark) {
-              box-shadow: 0 0 10px 0 lightblue;
-            }
           }
         }
       }
@@ -111,6 +104,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

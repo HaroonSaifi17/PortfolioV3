@@ -47,7 +47,7 @@ export class HomeComponent {
     },
   ];
   constructor() {
-    this.title.setTitle('Mohd Haroon | Full-Stack Developer Portfolio');
+    this.title.setTitle('Mohd Haroon | Full-Stack Developer');
 
     this.meta.addTags([
       {
@@ -88,10 +88,6 @@ export class HomeComponent {
       {
         property: 'og:site_name',
         content: 'Mohd Haroon Portfolio',
-      },
-      {
-        name: 'twitter:card',
-        content: 'summary_large_image',
       },
       {
         name: 'twitter:site',

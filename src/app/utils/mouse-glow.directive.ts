@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Renderer2, OnInit, Input } from '@
 })
 export class MouseGlowDirective implements OnInit {
   @Input() glowSize = 600;
-  @Input() glowColor = 'rgba(29, 78, 216, 0.15)';
+  @Input() glowColor ='var(--glow)';
   @Input() glowFade = 80;
 
   constructor(

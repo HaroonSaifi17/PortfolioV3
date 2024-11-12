@@ -20,12 +20,8 @@ section {
       gap: 90px;
 
       &_link {
-        color: black;
+        color: var(--slate-0);
         text-decoration: none;
-
-        @media (prefers-color-scheme: dark) {
-          color: white;
-        }
 
         &:hover {
           text-decoration: underline;
@@ -35,6 +31,7 @@ section {
       &_item {
         border-left: 4px solid var(--accent);
         padding-left: 20px;
+
         &_date {
           font-weight: 800;
         }
@@ -48,11 +45,7 @@ section {
 
       &_keyword {
         font-size: 14px;
-        color: black;
-
-        @media (prefers-color-scheme: dark) {
-          color: white;
-        }
+        color: var(--slate-0);
       }
     }
   }

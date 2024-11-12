@@ -8,13 +8,12 @@
   &_title {
     font-size: 30px;
     font-weight: 600;
-    opacity: 0.85;
   }
 
   &_description,
   &_cta {
     max-width: 65ch;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0px;
   }
 
@@ -32,10 +31,6 @@
     path,
     circle {
       fill: var(--slate-500);
-
-      @media (prefers-color-scheme: dark) {
-        fill: var(--slate-400);
-      }
     }
   }
 
@@ -76,50 +71,27 @@
       &:hover {
         background-color: var(--slate-100);
       }
-
-      @media (prefers-color-scheme: dark) {
-        color: var(--slate-300);
-
-        &:hover {
-          background-color: rgb(15 23 42);
-        }
-      }
     }
   }
 
   &_skills {
-    font-size: 30px;
+    font-size: 20px;
     color: var(--slate-600);
-
-    @media (prefers-color-scheme: dark) {
-      color: var(--slate-300);
-    }
   }
 
   &_skills_text {
-    color: black;
-
-    @media (prefers-color-scheme: dark) {
-      color: white;
-    }
+    font-size: 20px;
+    color: var(--slate-0);
   }
 
   &_images {
-    background-color: #f5f5f5;
+    background-color: var(--light-gray);
     border-radius: 15px;
     padding: 30px;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--slate-800);
-    }
   }
 
   &_img_lg {
     width: 100%;
-
-    @media (prefers-color-scheme: dark) {
-      filter: invert(0.85) hue-rotate(170deg);
-    }
 
     @media (max-width: 550px) {
       display: none;
@@ -129,10 +101,6 @@
   &_img_sm {
     display: none;
     width: 100%;
-
-    @media (prefers-color-scheme: dark) {
-      filter: invert(1) hue-rotate(170deg);
-    }
 
     @media (max-width: 550px) {
       display: block;

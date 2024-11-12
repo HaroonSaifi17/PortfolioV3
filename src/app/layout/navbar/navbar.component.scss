@@ -14,18 +14,14 @@
     text-decoration: none;
 
     #logo {
-      height: 50px;
-      width: 50px;
+      height: 40px;
+      width: 40px;
     }
 
     &_path {
       fill: transparent;
       stroke: var(--slate-900);
       stroke-width: 5;
-
-      @media (prefers-color-scheme: dark) {
-        stroke: var(--slate-50);
-      }
     }
 
     &_shape {
@@ -34,21 +30,14 @@
       stroke-width: 5;
       stroke-linecap: round;
       stroke-linejoin: round;
-
-      @media (prefers-color-scheme: dark) {
-        stroke: var(--slate-300);
-      }
     }
   }
 
   &_brand {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
     color: var(--slate-600);
-
-    @media (prefers-color-scheme: dark) {
-      color: var(--slate-300);
-    }
+    margin-left: 10px;
   }
 }
