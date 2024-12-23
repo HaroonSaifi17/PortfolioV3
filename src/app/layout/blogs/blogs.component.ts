@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { BlogService } from '../../utils/blog.service';
 
 @Component({
-  selector: 'app-blogs',
-  standalone: true,
-  imports: [RouterLink],
-  templateUrl: './blogs.component.html',
-  styleUrl: './blogs.component.scss',
+    selector: 'app-blogs',
+    imports: [RouterLink],
+    templateUrl: './blogs.component.html',
+    styleUrl: './blogs.component.scss'
 })
 export class BlogsComponent {
   blogInfo = blogInfo;

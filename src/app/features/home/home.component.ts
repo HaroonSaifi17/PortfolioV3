@@ -8,17 +8,16 @@ import { ProjectsComponent } from '../../layout/projects/projects.component';
 import { BlogService } from '../../utils/blog.service';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    RouterLink,
-    CommonModule,
-    HeroComponent,
-    AboutComponent,
-    ProjectsComponent,
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    imports: [
+        RouterLink,
+        CommonModule,
+        HeroComponent,
+        AboutComponent,
+        ProjectsComponent,
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   title = inject(Title);

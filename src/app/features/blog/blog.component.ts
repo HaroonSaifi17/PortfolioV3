@@ -13,12 +13,11 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-blog',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-blog',
+    imports: [CommonModule],
+    templateUrl: './blog.component.html',
+    styleUrl: './blog.component.scss',
+    encapsulation: ViewEncapsulation.None
 })
 export class BlogComponent {
   BlogService = inject(BlogService);
