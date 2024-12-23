@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { blogInfo } from '../../utils/blog-info.data';
 import { RouterLink } from '@angular/router';
+import { BlogService } from '../../utils/blog.service';
 
 @Component({
   selector: 'app-blogs',
@@ -11,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class BlogsComponent {
   blogInfo = blogInfo;
+  blogService = inject(BlogService);
   formatDate(dateStr: string) {
     const date = new Date(dateStr);
     const day = new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(
@@ -23,5 +25,8 @@ export class BlogsComponent {
       date,
     );
     return `${day} ${month}, ${year}`;
+  }
+  prefetch(path: string) {
+    this.blogService.cacheBlogContent(path);
   }
 }

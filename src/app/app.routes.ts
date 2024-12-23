@@ -1,11 +1,13 @@
 import { Routes } from '@angular/router';
 import { blogInfo } from './utils/blog-info.data';
+import { HomeComponent } from './features/home/home.component';
+import { NotFoundComponent } from './layout/not-found/not-found.component';
+import { BlogsComponent } from './layout/blogs/blogs.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./features/home/home.component').then((m) => m.HomeComponent),
+    component: HomeComponent,
   },
   {
     path: 'blog',
@@ -17,15 +19,11 @@ export const routes: Routes = [
   },
   {
     path: 'blogs',
-    loadComponent: () =>
-      import('./layout/blogs/blogs.component').then((m) => m.BlogsComponent),
+    component: BlogsComponent,
   },
   {
     path: 'error',
-    loadComponent: () =>
-      import('./layout/not-found/not-found.component').then(
-        (m) => m.NotFoundComponent,
-      ),
+    component: NotFoundComponent,
   },
   {
     path: '**',

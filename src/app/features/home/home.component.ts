@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../../layout/hero/hero.component';
 import { AboutComponent } from '../../layout/about/about.component';
 import { ProjectsComponent } from '../../layout/projects/projects.component';
+import { BlogService } from '../../utils/blog.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ import { ProjectsComponent } from '../../layout/projects/projects.component';
 export class HomeComponent {
   title = inject(Title);
   meta = inject(Meta);
+  blogService = inject(BlogService);
   blogInfo = [
     {
       path: 'frontends-are-changing-too-fast',
@@ -124,5 +126,8 @@ export class HomeComponent {
       date,
     );
     return `${day} ${month}, ${year}`;
+  }
+  prefetch(path: string) {
+    this.blogService.cacheBlogContent(path);
   }
 }

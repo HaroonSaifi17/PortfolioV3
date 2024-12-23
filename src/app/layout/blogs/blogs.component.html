@@ -7,7 +7,7 @@
           <div class="blog_list_item_date">
             {{ formatDate(blog.data.date) }}
           </div>
-          <a class="blog_list_link" [routerLink]="'/blog/' + blog.path">
+          <a class="blog_list_link" (mouseover)="prefetch(blog.path!)" [routerLink]="'/blog/' + blog.path">
             <h2>{{ blog.data.title }}</h2>
           </a>
           <p>{{ blog.data.description }}</p>

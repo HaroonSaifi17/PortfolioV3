@@ -6,9 +6,9 @@
     <h1 class="blog_title">TRENDING BLOGS</h1>
     <div class="blog_list">
       @for (blog of blogInfo; track blog.path) {
-      <div class="blog_list_item">
+      <div class="blog_list_item " >
         <span class="blog_list_item_date">{{ formatDate(blog.date) }}</span>
-        <a class="blog_list_item_link" [routerLink]="'blog/' + blog.path">
+        <a class="blog_list_item_link" (mouseover)="prefetch(blog.path)" [routerLink]="'blog/' + blog.path">
           {{ blog.title }}
         </a>
       </div>
@@ -20,5 +20,4 @@
     </div>
   </div>
 </section>
-
 <app-projects></app-projects>

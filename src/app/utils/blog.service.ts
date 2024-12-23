@@ -9,7 +9,7 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BlogService {
-  blogContent: { [key: string]: Observable<string> } = {};
+  blogContent: { [key: string]: string } = {};
   http = inject(HttpClient);
 
   marked = new Marked(
@@ -24,15 +24,18 @@ export class BlogService {
 
   constructor() {}
 
-  getBlogContent(path: string): Observable<string> {
+  getBlogContent(path: string): string {
     if (!this.blogContent[path]) {
-      this.blogContent[path] = this.http
+      this.http
         .get(`/blog/${path}.md`, { responseType: 'text' })
         .pipe(
           map((data: string) =>
             this.addCopyButtonToCodeBlocks(this.marked.parse(data).toString()),
           ),
-        );
+        )
+        .subscribe((data) => {
+          this.blogContent[path] = data;
+        });
     }
     return this.blogContent[path];
   }
@@ -49,5 +52,19 @@ export class BlogService {
         return `<div class="code">${match}${copyButtonHtml}</div>`;
       },
     );
+  }
+  cacheBlogContent(path: string): void {
+    if (!this.blogContent[path]) {
+      this.http
+        .get(`/blog/${path}.md`, { responseType: 'text' })
+        .pipe(
+          map((data: string) =>
+            this.addCopyButtonToCodeBlocks(this.marked.parse(data).toString()),
+          ),
+        )
+        .subscribe((data) => {
+          this.blogContent[path] = data;
+        });
+    }
   }
 }
