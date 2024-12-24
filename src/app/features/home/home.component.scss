@@ -35,7 +35,7 @@
   }
 
   &_title {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
   }
 
@@ -52,6 +52,8 @@
 
       &_link {
         color: var(--slate-900);
+        text-underline-offset: 5px;
+        text-decoration-color: var(--slate-400);
       }
     }
   }

@@ -1,5 +1,5 @@
 <nav class="nav">
-  <div class="nav_container">
+  <div [style.maxWidth.px]="navWidth$ | async" class="nav_container">
     <a class="nav_logo" routerLink="/">
       <svg id="logo" height="40" width="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 96">
         <g transform="translate(-8.000000, -2.000000)">

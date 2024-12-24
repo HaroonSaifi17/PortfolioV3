@@ -6,6 +6,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 5vw;
+    transition-duration: 0.3s;
   }
 
   &_logo {
@@ -39,5 +40,11 @@
     text-transform: uppercase;
     color: var(--slate-600);
     margin-left: 10px;
+  }
+  &_theme_button{
+    cursor: pointer;
+    padding: 10px;
+    min-width: 40px;
+    min-height: 40px;
   }
 }

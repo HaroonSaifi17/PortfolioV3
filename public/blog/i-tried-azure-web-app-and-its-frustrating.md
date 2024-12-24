@@ -73,5 +73,3 @@ export const routes: Routes = [
 This experience was frustrating. I spent an entire day debugging a deployment issue caused by Azure's verification process, which was not clearly documented. To make things worse, Azure's error messages were off-topic and vague, and support is limited for the student plan. I also didn’t receive any notification about the deployment failure.
 
 This is my experience with Azure so far. I'm still learning, so if I've made mistakes or you have suggestions, feel free to reach out via email. I’d be happy to respond and update this blog with new insights.
-
----
