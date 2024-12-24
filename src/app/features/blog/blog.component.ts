@@ -4,18 +4,18 @@ import {
   ElementRef,
   inject,
   Renderer2,
-  signal,
   ViewEncapsulation,
 } from '@angular/core';
 import { BlogService } from '../../utils/blog.service';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-blog',
-  imports: [CommonModule],
+  imports: [CommonModule, AsyncPipe],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
 export class BlogComponent {
   BlogService = inject(BlogService);
   ActivatedRoute = inject(ActivatedRoute);
-  blogContent = signal('');
+  blogContent$ = new Observable<string>();
   elementRef = inject(ElementRef);
   blogInfo$ = this.ActivatedRoute.data;
   meta = inject(Meta);
@@ -32,7 +32,7 @@ export class BlogComponent {
   router = inject(Router);
   constructor() {
     this.ActivatedRoute.url.subscribe((url) => {
-      this.blogContent.set(this.BlogService.getBlogContent(url[0].path));
+      this.blogContent$ = this.BlogService.getBlogContent(url[0].path);
     });
     this.blogInfo$.subscribe((data) => {
       this.title.setTitle(`${data['title']} | Haroon's Blog`);

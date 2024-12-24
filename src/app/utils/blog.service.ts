@@ -24,20 +24,26 @@ export class BlogService {
 
   constructor() {}
 
-  getBlogContent(path: string): string {
-    if (!this.blogContent[path]) {
-      this.http
-        .get(`/blog/${path}.md`, { responseType: 'text' })
-        .pipe(
-          map((data: string) =>
-            this.addCopyButtonToCodeBlocks(this.marked.parse(data).toString()),
-          ),
-        )
-        .subscribe((data) => {
-          this.blogContent[path] = data;
-        });
-    }
-    return this.blogContent[path];
+  getBlogContent(path: string): Observable<string> {
+    return new Observable((observer) => {
+      if (this.blogContent[path]) {
+        observer.next(this.blogContent[path]);
+        observer.complete();
+      } else {
+        this.http
+          .get(`/blog/${path}.md`, { responseType: 'text' })
+          .pipe(
+            map((data: string) =>
+              this.addCopyButtonToCodeBlocks(this.marked.parse(data).toString()),
+            ),
+          )
+          .subscribe((data) => {
+            this.blogContent[path] = data;
+            observer.next(data);
+            observer.complete();
+          });
+      }
+    })
   }
 
   addCopyButtonToCodeBlocks(htmlContent: string): string {

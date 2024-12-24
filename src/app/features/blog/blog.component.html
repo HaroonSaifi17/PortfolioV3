@@ -13,5 +13,5 @@
     </div>
   </div>
   }
-  <section class="blog_content" [innerHTML]="blogContent()"></section>
+  <section class="blog_content" [innerHTML]="blogContent$ | async"></section>
 </main>

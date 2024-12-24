@@ -43,8 +43,16 @@
   }
   &_theme_button{
     cursor: pointer;
-    padding: 10px;
-    min-width: 40px;
-    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    aspect-ratio: 1;
+    position: relative;
+    z-index: 1;
+    i {
+      position: relative;
+      z-index: -2;
+    }
   }
 }
