@@ -40,13 +40,26 @@
   &_content {
     a {
       color: var(--slate-950);
-      font-weight: 700;
       letter-spacing: 1.2px;
     }
 
     h2 {
       margin: 60px 0 25px 0;
       letter-spacing: 1px;
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--slate-950);
+    }
+    h3 {
+      letter-spacing: 1px;
+      font-weight: 500;
+      font-size: 22px;
+    }
+    h1{
+      font-size: 35px;
+    }
+    p{
+      color: var(--slate-700);
     }
 
     blockquote {
@@ -67,7 +80,7 @@
       font-size: 12px;
       overflow-x: scroll;
       margin: 30px 0;
-      border: 0.5px solid var(--slate-300);
+      border: 0.5px solid var(--slate-200);
     }
 
     hr {
@@ -84,7 +97,6 @@
 
     img {
       max-width: 100%;
-      border: 0.5px solid var(--slate-300);
     }
   }
 }

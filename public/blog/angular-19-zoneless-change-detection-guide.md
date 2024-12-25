@@ -1,38 +1,39 @@
-# Boost Your Angular 19 App Performance with Zoneless Change Detection
-
-![Angular 19 New Features](/images/angular-19-thumbnail.webp)
-*Angular 19 brings game-changing performance improvements*
-
 ## Why Should You Care About Zoneless Angular?
 
 Angular 19 makes your apps faster - much faster. By removing Zone.js, your app can run up to 40% quicker. Think of Zone.js as a watchdog that constantly checks for changes in your app. Now, we can tell Angular exactly when to check for updates, making everything smoother.
+
+![Angular 19 New Features](/images/angular-19-thumbnail.webp)
+_Angular 19 brings game-changing performance improvements_
 
 ## Quick Setup Guide (5 Minutes)
 
 Want better performance? Let's set up a zoneless Angular project:
 
 1. Create a Fresh Project
+
 ```bash
 ng new my-fast-app
 # Choose your preferred options when prompted
 ```
 
 2. Power Up Your App
-Open `app.config.ts` and add the zoneless magic:
+   Open `app.config.ts` and add the zoneless magic:
+
 ```typescript
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideExperimentalZonelessChangeDetection } from "@angular/core";
 
 export const appConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(), // This is the secret sauce!
     provideRouter(routes),
-    provideClientHydration()
-  ]
+    provideClientHydration(),
+  ],
 };
 ```
 
 3. Remove the Training Wheels
-Update your `angular.json` - find the "polyfills" section and remove Zone.js:
+   Update your `angular.json` - find the "polyfills" section and remove Zone.js:
+
 ```json
 {
   "polyfills": [
@@ -43,107 +44,101 @@ Update your `angular.json` - find the "polyfills" section and remove Zone.js:
 
 ## How to Know It Worked?
 
-Open your browser's console (press F12) and type `window.Zone`. If you see "undefined", congratulations! You're now running Zone-free! 
+Open your browser's console (press F12) and type `window.Zone`. If you see "undefined", congratulations! You're now running Zone-free!
 
 ![Console showing Zone.js is removed](https://haroonsaifi.tech/images/console-log.webp)
 
-*Your console should show undefined for the Zone object*
+_Your console should show undefined for the Zone object_
 
 ## Making Things Change with Signals
 
 Signals are Angular's new way of handling updates. They're like smart variables that tell Angular when something changes. Here's a simple example:
 
 ```typescript
-import { Component, signal } from '@angular/core';
+import { Component, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-counter',
+  selector: "app-counter",
   template: `
     <h2>Count: {{ count() }}</h2>
     <button (click)="increment()">Add One</button>
-  `
+  `,
 })
 export class CounterComponent {
   count = signal(0);
-  
+
   increment() {
-    this.count.update(n => n + 1);
+    this.count.update((n) => n + 1);
   }
 }
 ```
-## New Signal APIs in Angular 19
 
-### computed() with Equal Functions
+## Signals Quick Start
 
-The computed() signal now accepts a custom equality function:
+Signals are wrappers around values that notify Angular when they change. Here's what you need to know:
 
-```typescript
-import { computed, signal } from '@angular/core';
-
-interface User {
-  id: number;
-  name: string;
-}
-
-const user = signal<User>({ id: 1, name: 'John' });
-
-const userName = computed(() => user().name, {
-  equal: (a, b) => a.toLowerCase() === b.toLowerCase()
-});
-```
-
-### toSignal() for RxJS Observables
-
-Convert any Observable to a Signal easily:
+### Basic Signal Usage
 
 ```typescript
-import { toSignal } from '@angular/core';
-import { interval } from 'rxjs';
-
-const counter$ = interval(1000);
-const count = toSignal(counter$, { initialValue: 0 });
-
 @Component({
+  selector: "app-counter",
   template: `
-    <p>Count: {{ count() }}</p>
-  `
+    <h2>Count: {{ count() }}</h2>
+    <button (click)="increment()">+1</button>
+  `,
 })
 export class CounterComponent {
-  count = count;
+  count = signal(0);
+  increment() {
+    this.count.update((n) => n + 1);
+  }
 }
 ```
 
-### effect() for Side Effects
-
-Handle side effects cleanly:
+### Computed Values
 
 ```typescript
-import { effect, signal } from '@angular/core';
-
-const theme = signal('light');
-
-effect(() => {
-  document.body.classList.toggle('dark-mode', theme() === 'dark');
-});
+@Component({
+  template: `<p>Total: ${{ total() }}</p>`
+})
+export class PriceComponent {
+  price = signal(10);
+  quantity = signal(2);
+  total = computed(() => this.price() * this.quantity());
+}
 ```
 
-### untracked() for Performance
-
-Skip tracking dependencies when needed:
+### Effects for Side Effects
 
 ```typescript
-import { signal, computed, untracked } from '@angular/core';
+export class ThemeComponent {
+  theme = signal("light");
 
-const count = signal(0);
-const expensive = signal(1000);
-
-const total = computed(() => {
-  const currentCount = count();
-  // expensive() won't trigger recomputation
-  const untrackedValue = untracked(() => expensive());
-  return currentCount + untrackedValue;
-});
+  constructor() {
+    effect(() => {
+      document.body.classList.toggle("dark", this.theme() === "dark");
+    });
+  }
+}
 ```
+
+### RxJS Integration
+
+```typescript
+@Component({
+  template: `<p>Time: {{ time() }}</p>`,
+})
+export class ClockComponent {
+  time = toSignal(interval(1000), { initialValue: 0 });
+}
+```
+
+## Tips for Success
+
+- Use signals for values that change over time
+- Prefer computed() for derived values
+- Use effects sparingly, mainly for side effects
+- Remember: signals are synchronous
 
 ## Want to Learn More?
 
@@ -154,7 +149,8 @@ const total = computed(() => {
 
 Now that you're running zoneless, explore Signals and start building faster apps! Keep an eye on our blog for more Angular tips and tricks.
 
-*Last updated: December, 2024*
+_Last updated: December, 2024_
 
 ---
+
 **Tags**: #Angular19 #WebDevelopment #JavaScript #Performance #Frontend
