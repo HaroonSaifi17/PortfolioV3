@@ -8,16 +8,16 @@ import { ProjectsComponent } from '../../layout/projects/projects.component';
 import { BlogService } from '../../utils/blog.service';
 
 @Component({
-    selector: 'app-home',
-    imports: [
-        RouterLink,
-        CommonModule,
-        HeroComponent,
-        AboutComponent,
-        ProjectsComponent,
-    ],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss'
+  selector: 'app-home',
+  imports: [
+    RouterLink,
+    CommonModule,
+    HeroComponent,
+    AboutComponent,
+    ProjectsComponent,
+  ],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   title = inject(Title);
@@ -36,9 +36,11 @@ export class HomeComponent {
     },
 
     {
-      path: 'how-to-setup-zoneless-angular-project',
-      title: 'Set up your Angular project without zones – Ultimate Guide',
-      date: '2024-09-29',
+      path: 'angular-19-zoneless-change-detection-guide',
+      title:
+        'How to Implement Zoneless Change Detection in Angular 19: Performance Guide',
+
+      date: '2024-12-25',
     },
     {
       path: 'sacrifice-for-maintaining-superpower-status-the-untold-history-of-the-united-states',

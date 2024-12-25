@@ -13,6 +13,8 @@
     display: flex;
     align-items: center;
     text-decoration: none;
+    position:relative;
+    z-index: 1;
 
     #logo {
       height: 40px;
@@ -33,6 +35,10 @@
       stroke-linejoin: round;
     }
   }
+  a{
+    position:relative;
+    z-index: 2;
+  }
 
   &_brand {
     font-size: 16px;
@@ -40,6 +46,8 @@
     text-transform: uppercase;
     color: var(--slate-600);
     margin-left: 10px;
+    position:relative;
+    z-index: 1;
   }
   &_theme_button{
     cursor: pointer;

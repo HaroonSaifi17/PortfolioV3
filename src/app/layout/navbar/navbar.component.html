@@ -1,6 +1,6 @@
 <nav class="nav">
   <div [style.maxWidth.px]="navWidth$ | async" class="nav_container">
-    <a class="nav_logo" routerLink="/">
+    <a class="nav_logo animate_down" [style.animationDelay]="'50ms'" routerLink="/">
       <svg id="logo" height="40" width="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 96">
         <g transform="translate(-8.000000, -2.000000)">
           <g transform="translate(11.000000, 5.000000)">
@@ -11,7 +11,7 @@
       </svg>
       <span class="nav_brand">Mohd Haroon</span>
     </a>
-    <a class="nav_theme_button" (click)="toggleTheme()">
+    <a class="nav_theme_button animate_down" [style.animationDelay]="'250ms'" (click)="toggleTheme()">
       @if ((theme$ | async) === "dark") {
       <i class="pi pi-sun"></i>
       } @else {

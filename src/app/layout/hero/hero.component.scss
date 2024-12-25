@@ -6,57 +6,78 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 80px);
-  max-height: calc(800px);
+  height: calc(100vh - 80px);
+  max-height: 900px !important;
+  min-height: 600px;
   transform: translateY(-50px);
 
   @media (max-width: 768px) {
     padding: 40px 5vw;
     max-height: none;
-    min-height: calc(100dvh - 120px);
   }
 
   &_title {
-    font-size: 70px;
-    max-width: 1000px;
+    max-width: 1100px;
     letter-spacing: 2px;
+    margin-bottom: 40px;
+    font:
+      700 75px "Kanit",
+      serif;
     line-height: 1.2;
-    margin-bottom: 10px;
-    text-align: center;
 
-    @media (max-width: 768px) {
-      font-size: 40px;
+    @media (max-width: 1280px) {
+      font-size: 60px;
     }
 
-    @media (max-width: 1080px) {
-      text-align: left;
+    @media (max-width: 768px) {
+      font-size: 50px;
+      line-height: 1;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 40px;
     }
   }
 
   &_content {
     display: flex;
-    gap: 20px;
 
-    >div {
+    > div {
       flex: 1;
+    }
+
+    > div:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
     }
   }
 
   &_description {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 1.4;
-    max-width: 65ch;
-    color: var(--slate-600);
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    max-width: 70ch;
+    color: var(--slate-800);
+
+    @media (max-width: 1280px) {
+      font-size: 16px;
+      letter-spacing: 1.2px;
+      line-height: 1.4;
+    }
   }
 
   &_profile {
     display: flex;
     justify-content: right;
     align-items: center;
+    margin-right: 90px;
 
     @media (max-width: 768px) {
       flex: 0 !important;
+      margin-right: 20px;
     }
 
     &_wrapper {
@@ -67,7 +88,11 @@
       aspect-ratio: 1/1;
       width: 150px;
 
-      >div {
+      @media (max-width: 768px) {
+        width: 120px;
+      }
+
+      > div {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -92,6 +117,10 @@
       height: 0.5px;
       transform: translateY(75px);
 
+      @media (max-width: 768px) {
+        transform: translateY(60px);
+      }
+
       span {
         animation: rotate_text 100s linear infinite;
         opacity: 0.8;
@@ -105,6 +134,11 @@
         right: 0;
         bottom: 0;
         text-transform: uppercase;
+
+        @media (max-width: 768px) {
+          height: 120px;
+          font-size: 10px;
+        }
       }
     }
   }

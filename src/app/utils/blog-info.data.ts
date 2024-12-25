@@ -39,20 +39,19 @@ export const blogInfo: BlogInfo[] = [
     },
   },
   {
-    path: 'how-to-setup-zoneless-angular-project',
+    path: 'angular-19-zoneless-change-detection-guide',
     data: {
-      title: 'Set up your Angular project without zones – Ultimate Guide',
+      title:
+        'How to Implement Zoneless Change Detection in Angular 19: Performance Guide',
       description:
-        'Learn how to easily set up a zoneless Angular project with this step-by-step guide. Unlock faster performance and better control over your app.',
-      date: '2024-09-29',
+        'Master zoneless change detection in Angular 19 using Signals for better performance. Step-by-step guide to implementing efficient state management and optimizing change detection in modern Angular applications.',
+      date: '2024-12-25',
       keywords: [
-        'Angular',
-        'Zoneless',
-        'Setup',
-        'Performance',
-        'Trading',
-        'Tech',
-        'Guide',
+        'angular 19 zoneless change detection tutorial',
+        'signal based state management angular',
+        'angular performance optimization guide',
+        'implementing angular signals tutorial',
+        'angular 19 change detection patterns',
       ],
     },
   },
