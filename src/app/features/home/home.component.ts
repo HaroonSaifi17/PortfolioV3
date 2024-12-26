@@ -6,6 +6,7 @@ import { HeroComponent } from '../../layout/hero/hero.component';
 import { AboutComponent } from '../../layout/about/about.component';
 import { ProjectsComponent } from '../../layout/projects/projects.component';
 import { BlogService } from '../../utils/blog.service';
+import { TruncatePipe } from '../../utils/truncate.pipe';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { BlogService } from '../../utils/blog.service';
     HeroComponent,
     AboutComponent,
     ProjectsComponent,
+    TruncatePipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

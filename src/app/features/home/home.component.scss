@@ -11,7 +11,6 @@
 
   &_header {
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 
@@ -35,12 +34,15 @@
   }
 
   &_title {
-    font-size: 40px;
-    font-weight: 600;
+    font:
+      700 30px "Kanit",
+      serif;
   }
 
   &_list {
+    margin: 50px 0;
     &_item {
+      border-top: 0.5px solid var(--slate-300);
       display: flex;
       gap: 15px;
       padding: 20px 0;
@@ -51,10 +53,13 @@
       }
 
       &_link {
+        flex: 1;
         color: var(--slate-900);
-        text-underline-offset: 5px;
-        text-decoration-color: var(--slate-400);
+        text-decoration: none;
       }
     }
+    &_item:last-child{
+      border-bottom: 0.5px solid var(--slate-300);
+      }
   }
 }

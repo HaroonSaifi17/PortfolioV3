@@ -1,13 +1,17 @@
 .footer {
   &_social {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 5vw;
+
+    @media (max-width: 768px) {
+      gap: 20px;
+    }
 
     &_link {
       color: var(--slate-500);

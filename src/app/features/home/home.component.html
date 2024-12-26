@@ -1,16 +1,17 @@
 <app-hero></app-hero>
+<app-projects></app-projects>
 <app-about></app-about>
 
 <section class="blog_section">
   <div class="blog_container">
-    <h1 class="blog_title">TRENDING BLOGS</h1>
+    <h1 class="blog_title">Recent Blogs</h1>
     <div class="blog_list">
       @for (blog of blogInfo; track blog.path) {
       <div class="blog_list_item " >
-        <span class="blog_list_item_date">{{ formatDate(blog.date) }}</span>
         <a class="blog_list_item_link" (mouseover)="prefetch(blog.path)" [routerLink]="'blog/' + blog.path">
-          {{ blog.title }}
+          {{ blog.title | truncate:70 }}
         </a>
+        <span class="blog_list_item_date">{{ formatDate(blog.date) }}</span>
       </div>
       }
     </div>
@@ -20,4 +21,3 @@
     </div>
   </div>
 </section>
-<app-projects></app-projects>
