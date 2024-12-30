@@ -38,6 +38,7 @@ body.light {
   --pastel-blue: #458b91;
   --light-gray: #f5f5f5;
   --glow:transparent;
+  --bg-about:linear-gradient(135deg, rgba(2,6,23,0.1) 0% , rgba(30,41,59,0.05) 100%);;
 }
 
 body.dark {
@@ -61,6 +62,7 @@ body.dark {
   --pastel-blue: #9bf6ff;
   --light-gray: var(--slate-200);
   --glow:rgba(29, 78, 216, 0.15);
+  --bg-about:linear-gradient(135deg, rgba(2,6,23,0.7) 0% , rgba(30,41,59,0.4) 100%);;
 
   .about_image {
     filter: invert(0.85) hue-rotate(170deg);

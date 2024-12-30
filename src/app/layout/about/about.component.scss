@@ -1,91 +1,143 @@
 .about {
   &_container {
     max-width: 1100px;
-    margin: 0px auto 100px;
+    margin: 0 auto 100px;
     padding: 0 5vw;
   }
 
   &_title {
-    margin: 0;
     font:
       700 30px "Kanit",
       serif;
   }
 
-  &_grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    gap: 30px;
+  &_content {
+    &_profile {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto;
-    }
-  }
+      @media (max-width: 550px) {
+        flex-direction: column-reverse;
+      }
 
-  &_row1,
-  &_row2 {
-    background-color: var(--slate-200);
-    padding: 40px;
-    border-radius: 20px;
-  }
+      &_text {
+        max-width: 65ch;
+      }
 
-  &_column2 {
-    width: 300px;
-    background-color: var(--slate-200);
-    padding: 40px;
-    border-radius: 20px;
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    @media (max-width: 768px) {
-      grid-column: 1;
-      grid-row: 3;
-      width: auto;
-    }
-  }
+      &_image {
+        flex: 1;
 
-  &_img {
-    width: 100%;
-  }
-
-  &_description {
-    max-width: 45ch;
-    font-size: 18px;
-    letter-spacing: 0px;
-  }
-
-  &_button {
-    display: flex;
-    gap: 15px;
-    margin: 0;
-
-    &_resume,
-    &_contact {
-      padding: 6px 15px;
-      border-radius: 10px;
-      font-size: 16px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      border: 0.5px solid var(--slate-300);
-      cursor: pointer;
-    }
-
-    &_resume {
-      color: white;
-      background-color: var(--accent);
-      border: none;
-
-      &:hover {
-        background-color: #3b82f6;
+        img {
+          height: 120px;
+          border-radius: 500px;
+        }
       }
     }
 
-    &_contact {
-      color: var(--slate-600);
+    &_stats {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
 
-      &:hover {
-        background-color: var(--slate-100);
+      @media (max-width: 550px) {
+        display: none;
+      }
+
+      &_number {
+        font:
+          700 30px "Kanit",
+          serif;
+        text-align: center;
+      }
+
+      &_label {
+        text-align: center;
+      }
+    }
+
+    &_skills {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+
+      @media (max-width: 550px) {
+        flex-direction: column-reverse;
+      }
+
+      &_text {
+        flex: 1;
+      }
+
+      &_showcase {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 100%;
+
+          &.desktop {
+            display: block;
+          max-width: 650px;
+
+            @media (max-width: 550px) {
+              display: none;
+            }
+          }
+
+          &.mobile {
+            display: none;
+          max-width: 300px;
+
+            @media (max-width: 550px) {
+              display: block;
+            }
+          }
+        }
+      }
+
+      &_title {
+        flex: 1;
+        font:
+          700 30px "Kanit",
+          serif;
+        text-align: center;
+
+        i {
+          font-size: 40px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &_card {
+    padding: 30px;
+    background: var(--bg-about);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  &_devicons {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    &_container {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    svg {
+      width: 40px;
+
+      path,
+      circle {
+        fill: var(--slate-500);
       }
     }
   }
