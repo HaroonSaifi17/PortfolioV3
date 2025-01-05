@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../../layout/hero/hero.component';
 import { AboutComponent } from '../../layout/about/about.component';
@@ -44,12 +44,6 @@ export class HomeComponent {
 
       date: '2024-12-25',
     },
-    {
-      path: 'sacrifice-for-maintaining-superpower-status-the-untold-history-of-the-united-states',
-      title:
-        'Sacrifice for Maintaining Superpower Status: The Untold History of the United States',
-      date: '2024-10-30',
-    },
   ];
   constructor() {
     this.title.setTitle('Mohd Haroon | Full-Stack Developer');
@@ -63,7 +57,7 @@ export class HomeComponent {
       {
         name: 'keywords',
         content:
-          'full-stack developer, Mohd Haroon, HaroonSaifi17, Angular developer, Node.js developer, React developer, JavaScript expert, web development, front-end development, back-end development, MongoDB, Express.js, SQL, REST API, portfolio, software engineer',
+          'Freelance Angular Developer in Delhi, Angular 19 Developer for Scalable Web Apps, Tailored Angular Material Components Developer, 3D Web Design with Angular and Three.js, SEO-Optimized Angular SSR Expert',
       },
       {
         name: 'author',

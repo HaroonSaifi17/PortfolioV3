@@ -8,12 +8,12 @@
             {{ formatDate(blog.data.date) }}
           </div>
           <a class="blog_list_link" (mouseover)="prefetch(blog.path!)" [routerLink]="'/blog/' + blog.path">
-            <h2>{{ blog.data.title }}</h2>
+            <h3>{{ blog.data.title |truncate:60  }}</h3>
           </a>
-          <p>{{ blog.data.description }}</p>
+          <p >{{ blog.data.description |truncate:80 }}</p>
           <div class="blog_list_keywords">
             @for (keyword of blog.data.keywords; track i; let i = $index) {
-              @if (i < 4) {
+              @if (i < 1) {
                 <span class="blog_list_keyword">#{{ keyword }}</span>
               }
             }

@@ -2,9 +2,9 @@
   @if (blogInfo$ | async; as blogInfo) {
     <div class="blog_header">
       <h1 class="blog_header_title">{{ blogInfo["title"] }}</h1>
-      <h3 class="blog_header_date">
+      <span class="blog_header_date">
         Published on {{ formatDate(blogInfo["date"]) }}
-      </h3>
+      </span>
       <div class="blog_header_tags">
         <span class="blog_header_tag">{{ blogInfo["keywords"][0] }}</span>
         <span class="blog_header_tag">{{ blogInfo["keywords"][1] }}</span>

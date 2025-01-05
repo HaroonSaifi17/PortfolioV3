@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { blogInfo } from '../../utils/blog-info.data';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '../../utils/blog.service';
+import { TruncatePipe } from '../../utils/truncate.pipe';
 
 @Component({
     selector: 'app-blogs',
-    imports: [RouterLink],
+    imports: [RouterLink,TruncatePipe],
     templateUrl: './blogs.component.html',
     styleUrl: './blogs.component.scss'
 })

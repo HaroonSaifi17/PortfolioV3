@@ -2,13 +2,14 @@ section {
   min-height: calc(100dvh - 280px);
   flex-direction: column;
   display: flex;
-  padding: 50px 5vw;
+  padding: 20px 5vw;
   margin: 0 auto;
   max-width: 900px;
+  padding-bottom: 70px;
 
   .blog {
     &_heading {
-      font-size: 55px;
+      font-size: 50px;
       font-weight: 700;
       margin-bottom: 50px;
       text-transform: uppercase;
@@ -17,6 +18,7 @@ section {
     &_list {
       display: flex;
       flex-direction: column;
+      transform: translateX(-10px);
       gap: 90px;
 
       &_link {

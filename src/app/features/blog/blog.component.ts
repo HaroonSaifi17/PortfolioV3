@@ -106,7 +106,6 @@ export class BlogComponent {
           name: 'twitter:creator',
           content: '@HaroonSaifi17',
         },
-
         {
           name: 'canonical',
           content: blogUrl,
