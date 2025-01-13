@@ -1,11 +1,10 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
-  afterNextRender,
   inject,
   Injectable,
   PLATFORM_ID,
 } from '@angular/core';
-import { BehaviorSubject, } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export enum Theme {
   Light = 'light',
@@ -16,18 +15,12 @@ export enum Theme {
   providedIn: 'root',
 })
 export class ThemeToggleService {
-  theme: BehaviorSubject<Theme> = new BehaviorSubject<Theme>(Theme.Dark);
+  theme: BehaviorSubject<Theme> = new BehaviorSubject<Theme>(Theme.Light);
   private platformId = inject(PLATFORM_ID);
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
-      this.theme.next((localStorage.getItem('theme') as Theme) || Theme.Dark);
-    } else {
-      afterNextRender(() => {
-        this.theme.next(
-          (localStorage.getItem('theme') as Theme) || Theme.Dark,
-        );
-      });
+      this.theme.next((localStorage.getItem('theme') as Theme) || Theme.Light);
     }
   }
 
@@ -36,8 +29,11 @@ export class ThemeToggleService {
       this.theme.value === Theme.Light ? Theme.Dark : Theme.Light,
     );
     if (isPlatformBrowser(this.platformId)) {
-      document.documentElement.classList.remove(Theme.Light, Theme.Dark);
-      document.documentElement.classList.add(this.theme.value);
+      if (this.theme.value === Theme.Dark) {
+        document.documentElement.classList.add(Theme.Dark);
+      } else {
+        document.documentElement.classList.remove(Theme.Dark);
+      }
       localStorage.setItem('theme', this.theme.value);
     }
   }
