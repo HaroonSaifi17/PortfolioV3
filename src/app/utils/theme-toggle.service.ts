@@ -36,6 +36,8 @@ export class ThemeToggleService {
       this.theme.value === Theme.Light ? Theme.Dark : Theme.Light,
     );
     if (isPlatformBrowser(this.platformId)) {
+      document.documentElement.classList.remove(Theme.Light, Theme.Dark);
+      document.documentElement.classList.add(this.theme.value);
       localStorage.setItem('theme', this.theme.value);
     }
   }
