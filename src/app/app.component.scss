@@ -2,4 +2,9 @@
   text-align: center;
   background: rgb(200,200,100,0.2);
   padding: 5px 5vw;
+  position: absolute;
+  width: 90vw;
+  left: 0;
+  top: 0;
+  pointer-events: none;
 }
